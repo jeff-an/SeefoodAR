@@ -130,14 +130,14 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
         cell.selectionStyle = .none
-        let dish = dishData[indexPath.row]
         if indexPath.row > 0 {
+            let dish = dishData[indexPath.row - 1]
             //put in custom titles and descrips
-            cell.foodImage.image = UIImage(named: dish["imageId"]! as! String)
-            cell.title.text = dish["title"]! as! String
-            cell.price.text = String(dish["price"]! as! Float)
-            cell.restaurant.text = dish["restaurant"]! as! String
-            cell.descripLabel.text = dish["descripLabel"]! as! String
+            cell.foodImage.image = UIImage(named: dish["imageId"]!)
+            cell.title.text = dish["title"]!
+            cell.price.text = dish["price"]!
+            cell.restaurant.text = dish["restaurant"]!
+            cell.descripLabel.text = dish["descripLabel"]!
         }
         cell.alpha = 0
         UIView.animate(withDuration: 0.75, animations: { cell.alpha = 1 })

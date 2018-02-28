@@ -33,7 +33,6 @@ class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowMenuSegue") {
-            let vc = segue.destination as! ResultsTableViewController
             
         }
     }
