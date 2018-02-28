@@ -6,9 +6,9 @@
 //  Copyright © 2018 Duvelop. All rights reserved.
 //
 import UIKit
+import SceneKit
 
 class ResultsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var currCount = 0
     var selectedRow = 0
     // Flag to determine whether the search is for all restaurants or for a specific one
     static var isRestaurantSearch = false
@@ -20,7 +20,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     static let dataStore = DataStore()
     
     @IBOutlet weak var resultsTableView: UITableView!
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
         
         self.resultsTableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -42,8 +42,15 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRow = indexPath.row
-        self.performSegue(withIdentifier: "next", sender: self)
+        if(indexPath.row > 0){
+            selectedRow = indexPath.row - 1
+        }
+        print(ResultsTableViewController.results[selectedRow]["imageId"])
+        if let modelScene = SCNScene(named:"art.scnassets/SeefoodObjects/" + "\(ResultsTableViewController.results[selectedRow]["imageId"])" + ".dae") {
+            self.performSegue(withIdentifier: "next", sender: self)
+        }else{
+            print("DONT HAVE IT")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,11 +80,11 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier != "unwind"){
-        let currItem = ResultsTableViewController.dataStore.getDishById(id: "\(ResultsTableViewController.results[currCount]["imageId"])")
-        let vc = segue.destination as! ARSceneViewController
-        vc.nodeName = currItem["imageId"] as! String
-        vc.foodTitle = currItem["title"] as! String
-        vc.foodDescrip = currItem["descripLabel"] as! String
+            let currItem = ResultsTableViewController.dataStore.getDishById(id: "\(ResultsTableViewController.results[selectedRow]["imageId"])")
+                let vc = segue.destination as! ARSceneViewController
+                vc.nodeName = currItem["imageId"] as! String
+                vc.foodTitle = currItem["title"] as! String
+                vc.foodDescrip = currItem["descripLabel"] as! String
         }
     }
     
