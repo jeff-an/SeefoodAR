@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skf-HI-Hwc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +42,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V77-tU-WRH">
+                                <rect key="frame" x="67" y="464" width="241" height="73"/>
+                                <state key="normal" title="Button" image="menuBtn"/>
+                                <connections>
+                                    <segue destination="skf-HI-Hwc" kind="show" id="Fdb-ws-3TS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -49,11 +56,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S4u-4T-yfT" secondAttribute="bottom" constant="211" id="7g5-gn-ow4"/>
                             <constraint firstItem="n1O-cE-dH2" firstAttribute="centerX" secondItem="S4u-4T-yfT" secondAttribute="centerX" id="8Lc-nU-nXB"/>
                             <constraint firstItem="S4u-4T-yfT" firstAttribute="top" secondItem="n1O-cE-dH2" secondAttribute="bottom" constant="38" id="8fG-nx-Ltg"/>
+                            <constraint firstItem="V77-tU-WRH" firstAttribute="top" secondItem="S4u-4T-yfT" secondAttribute="bottom" constant="8" symbolic="YES" id="Nun-d9-hka"/>
                             <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tat-7i-OZw"/>
                             <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="n1O-cE-dH2" secondAttribute="centerX" id="XRH-Jm-kYA"/>
                             <constraint firstItem="aSF-EK-KcO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="ZNW-0X-IRS"/>
                             <constraint firstItem="aSF-EK-KcO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="aNb-c4-Awg"/>
+                            <constraint firstItem="V77-tU-WRH" firstAttribute="leading" secondItem="S4u-4T-yfT" secondAttribute="leading" id="bam-FG-K1j"/>
+                            <constraint firstItem="V77-tU-WRH" firstAttribute="trailing" secondItem="S4u-4T-yfT" secondAttribute="trailing" id="sQq-Or-hHt"/>
                             <constraint firstItem="n1O-cE-dH2" firstAttribute="top" secondItem="aSF-EK-KcO" secondAttribute="bottom" constant="23" id="w7T-gH-Iq7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V77-tU-WRH" secondAttribute="bottom" constant="130" id="x3G-YM-qKi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -247,5 +258,9 @@
     </scenes>
     <resources>
         <image name="continueBtn" width="747" height="222"/>
+        <image name="menuBtn" width="747" height="222"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fdb-ws-3TS"/>
+    </inferredMetricsTieBreakers>
 </document>
