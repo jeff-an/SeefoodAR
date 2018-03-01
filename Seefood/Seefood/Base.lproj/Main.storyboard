@@ -19,7 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
                                 <rect key="frame" x="67" y="383" width="241" height="73"/>
-                                <state key="normal" title="Button" image="continueBtn"/>
+                                <state key="normal" title="Button" image="findBtn"/>
                                 <connections>
                                     <segue destination="TdP-Wd-MbK" kind="show" id="Mpz-Gj-3pE"/>
                                 </connections>
@@ -257,7 +257,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="continueBtn" width="747" height="222"/>
+        <image name="findBtn" width="747" height="222"/>
         <image name="menuBtn" width="747" height="222"/>
     </resources>
     <inferredMetricsTieBreakers>
