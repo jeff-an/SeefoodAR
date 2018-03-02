@@ -9,7 +9,7 @@
 import Foundation
 
 class DishResult {
-    var data: [String: String]
+    var data: [String: String] = [:]
 
     init(imageId: String, title: String, restaurant: String, price: String?, descripLabel: String?) {
         data["imageId"] = imageId

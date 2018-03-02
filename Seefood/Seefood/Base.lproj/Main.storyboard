@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="skf-HI-Hwc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--PopupVC-->
+        <scene sceneID="uof-Hf-gng">
+            <objects>
+                <viewController id="cos-JQ-rfK" customClass="PopupVC" customModule="Seefood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gzb-f2-Aeh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpL-7U-bJw">
+                                <rect key="frame" x="36" y="150" width="302" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aB-tc-hZw">
+                                        <rect key="frame" x="31" y="115" width="241" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWi-wW-LhU">
+                                        <rect key="frame" x="57" y="43" width="191" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search by name, street address, or postal code." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEw-Tl-q2l">
+                                        <rect key="frame" x="11" y="62" width="283" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCH-t7-vfq">
+                                        <rect key="frame" x="193" y="163" width="55" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Confirm"/>
+                                        <connections>
+                                            <segue destination="skf-HI-Hwc" kind="show" identifier="RestaurantSelectAction" id="lyd-SM-BAQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHg-SU-biv">
+                                        <rect key="frame" x="57" y="163" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="CancelModalAction" destination="cos-JQ-rfK" eventType="touchUpInside" id="GNa-8L-CKS"/>
+                                            <action selector="CancelModalAction:" destination="cos-JQ-rfK" eventType="touchUpInside" id="qWZ-EF-UQB"/>
+                                            <segue destination="BrJ-8R-la8" kind="unwind" unwindAction="unwindToThisViewControllerWithSegue:" id="5cK-Rp-qEC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ofd-3A-AbB"/>
+                    </view>
+                    <connections>
+                        <outlet property="TextAction" destination="0aB-tc-hZw" id="1yb-cZ-m3D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VwN-gL-K2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BrJ-8R-la8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-250.40000000000001" y="612.14392803598207"/>
+        </scene>
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,7 +90,6 @@
                                 <state key="normal" title="Button" image="findBtn"/>
                                 <connections>
                                     <action selector="FindDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-xV-ztQ"/>
-                                    <segue destination="TdP-Wd-MbK" kind="show" identifier="FindDish" id="hU9-2P-2Kj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
@@ -35,21 +101,20 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Seefood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
                                 <rect key="frame" x="39" y="227" width="296" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V77-tU-WRH">
-                                <rect key="frame" x="67" y="464" width="241" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="menuBtn"/>
-                                <connections>
-                                    <segue destination="skf-HI-Hwc" kind="show" identifier="ShowMenuSegue" id="Fdb-ws-3TS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="0go-KE-EZN"/>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="top" secondItem="n1O-cE-dH2" secondAttribute="bottom" constant="38" id="7yB-4b-RgS"/>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="leading" secondItem="V77-tU-WRH" secondAttribute="leading" id="G4B-xD-XUP"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="n1O-cE-dH2" secondAttribute="centerX" id="GDX-ab-YYp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V77-tU-WRH" secondAttribute="bottom" constant="130" id="Icc-W8-Lcn"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="Ldi-20-Z5u"/>
+                            <constraint firstItem="n1O-cE-dH2" firstAttribute="centerX" secondItem="S4u-4T-yfT" secondAttribute="centerX" id="PCR-uW-tb9"/>
+                            <constraint firstItem="n1O-cE-dH2" firstAttribute="top" secondItem="aSF-EK-KcO" secondAttribute="bottom" constant="23" id="Vdk-WS-FKa"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kIz-D5-7c2"/>
+                            <constraint firstItem="V77-tU-WRH" firstAttribute="top" secondItem="S4u-4T-yfT" secondAttribute="bottom" constant="8" symbolic="YES" id="qwL-WZ-z3b"/>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="trailing" secondItem="V77-tU-WRH" secondAttribute="trailing" id="tYb-CR-tDx"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="xhj-Dd-tbu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F5965CD204B3C7D00EC615F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965CC204B3C7D00EC615F /* StartViewController.swift */; };
+		1F5965CF204B4C4A00EC615F /* DishResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965CE204B4C4A00EC615F /* DishResult.swift */; };
+		1F5965D1204B51A000EC615F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965D0204B51A000EC615F /* DataStore.swift */; };
+		1F5965D5204B620C00EC615F /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965D4204B620C00EC615F /* PopupVC.swift */; };
 		565E51F7204AF4E500156B6B /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */; };
 		565E51F9204AF84B00156B6B /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */; };
 		565E51FB204AF85700156B6B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */; };
@@ -37,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -142,7 +147,7 @@
 				565E51FC204AFAD700156B6B /* TitleCell.swift */,
 				565E5202204B23F500156B6B /* ARSceneViewController.swift */,
 				565E5204204B243900156B6B /* DataViewController.swift */,
-				565E5206204B243900156B6B /* Variables.swift */,
+				1F5965D4204B620C00EC615F /* PopupVC.swift */,
 			);
 			path = Seefood;
 			sourceTree = "<group>";
@@ -327,6 +332,8 @@
 				56FDA580204AE92700E15BD1 /* DemoTextMessageModel.swift in Sources */,
 				56FDA58B204AEF5900E15BD1 /* DemoChatMessageFactory.swift in Sources */,
 				56FDA588204AE97B00E15BD1 /* SlidingDatasSource.swift in Sources */,
+				1F5965D1204B51A000EC615F /* DataStore.swift in Sources */,
+				1F5965D5204B620C00EC615F /* PopupVC.swift in Sources */,
 				56FDA587204AE96500E15BD1 /* BaseMessagesSelector.swift in Sources */,
 				565E51FD204AFAD700156B6B /* TitleCell.swift in Sources */,
 			);

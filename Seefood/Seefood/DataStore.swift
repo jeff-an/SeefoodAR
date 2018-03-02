@@ -8,13 +8,60 @@
 
 import Foundation
 
+enum MealSize {
+    case SMALL
+    case MEDIUM
+    case LARGE
+}
+
+enum SpecialRequests {
+    
+}
+
 class DataStore {
     let dishById: [String: DishResult] = [
-        "0": DishResult(imageId: "0", title: "Salmon Bento Box", restaurant: "Sushi Moto", price: "12.99", descripLabel: "Succulent, fresh salmon nigiri served with rice."),
+        "0": DishResult(imageId: "0",
+                        title: "Salmon Bento Box",
+                        restaurant: "Sushi Moto",
+                        price: "12.99",
+                        descripLabel: "Succulent, fresh salmon nigiri served with rice."),
+        
+        "1": DishResult(imageId: "1",
+                        title: "Tuna Bento Box",
+                        restaurant: "Sushi Moto",
+                        price: "12.99",
+                        descripLabel: "Salmon Bento Box, except with Tuna."),
         
     ]
     
-    func getDishById(id: String) {
-        
+    var dishesByRestaurant: [String: [DishResult]] = [:]
+    
+    func getDishById(id: String) -> DishResult {
+        if let dish = dishById[id] {
+            return dish
+        }
+        return dishById["0"]!
     }
+    
+    func getDishesByRestaurant(name: String) -> [DishResult] {
+        if let dishes = dishByRestaurant[name] {
+            return dishes
+        }
+        return dishById["Sushi Moto"]!
+    }
+    
+    func filterDishes()
+    
+    init() {
+        // Group all dishes by restaurant
+        for (_, dish) in dishById {
+            let restaurant = dish["restaurant"]
+            if var dishes = dishesByRestaurant[restaurant] {
+                dishes.append(dish)
+            } else {
+                dishesByRestaurant[restaurant] = [dish]
+            }
+        }
+    }
+    
 }
