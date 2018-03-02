@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F5965CD204B3C7D00EC615F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965CC204B3C7D00EC615F /* StartViewController.swift */; };
-		1F5965CF204B4C4A00EC615F /* DishResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965CE204B4C4A00EC615F /* DishResult.swift */; };
-		1F5965D1204B51A000EC615F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965D0204B51A000EC615F /* DataStore.swift */; };
 		565E51F7204AF4E500156B6B /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */; };
 		565E51F9204AF84B00156B6B /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */; };
 		565E51FB204AF85700156B6B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */; };
@@ -17,6 +14,7 @@
 		565E51FF204AFAE200156B6B /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E51FE204AFAE200156B6B /* TitleCell.xib */; };
 		565E5203204B23F500156B6B /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E5202204B23F500156B6B /* ARSceneViewController.swift */; };
 		565E5205204B243900156B6B /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E5204204B243900156B6B /* DataViewController.swift */; };
+		565E5207204B243900156B6B /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E5206204B243900156B6B /* Variables.swift */; };
 		56FDA534204A834900E15BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA533204A834900E15BD1 /* AppDelegate.swift */; };
 		56FDA539204A834900E15BD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA537204A834900E15BD1 /* Main.storyboard */; };
 		56FDA53B204A834900E15BD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA53A204A834900E15BD1 /* Assets.xcassets */; };
@@ -39,9 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F5965CC204B3C7D00EC615F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		1F5965CE204B4C4A00EC615F /* DishResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishResult.swift; sourceTree = "<group>"; };
-		1F5965D0204B51A000EC615F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -49,6 +44,7 @@
 		565E51FE204AFAE200156B6B /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		565E5202204B23F500156B6B /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		565E5204204B243900156B6B /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		565E5206204B243900156B6B /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		56FDA530204A834900E15BD1 /* Seefood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seefood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FDA533204A834900E15BD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FDA538204A834900E15BD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,13 +126,11 @@
 		56FDA532204A834900E15BD1 /* Seefood */ = {
 			isa = PBXGroup;
 			children = (
-				1F5965CC204B3C7D00EC615F /* StartViewController.swift */,
 				56FDA589204AEF5900E15BD1 /* DemoChatMessageFactory.swift */,
 				565E51F5204AF1A900156B6B /* Chat Helpers */,
 				56FDA55E204AE7FB00E15BD1 /* Chat Items */,
 				56FDA533204A834900E15BD1 /* AppDelegate.swift */,
 				56FDA537204A834900E15BD1 /* Main.storyboard */,
-				1F5965CE204B4C4A00EC615F /* DishResult.swift */,
 				56FDA53A204A834900E15BD1 /* Assets.xcassets */,
 				56FDA53C204A834900E15BD1 /* LaunchScreen.storyboard */,
 				56FDA53F204A834900E15BD1 /* Info.plist */,
@@ -146,9 +140,9 @@
 				565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */,
 				565E51FE204AFAE200156B6B /* TitleCell.xib */,
 				565E51FC204AFAD700156B6B /* TitleCell.swift */,
-				1F5965D0204B51A000EC615F /* DataStore.swift */,
 				565E5202204B23F500156B6B /* ARSceneViewController.swift */,
 				565E5204204B243900156B6B /* DataViewController.swift */,
+				565E5206204B243900156B6B /* Variables.swift */,
 			);
 			path = Seefood;
 			sourceTree = "<group>";
@@ -314,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F5965CF204B4C4A00EC615F /* DishResult.swift in Sources */,
 				56FDA591204AEFA200E15BD1 /* DemoChatMessageSender.swift in Sources */,
 				565E5205204B243900156B6B /* DataViewController.swift in Sources */,
 				565E51F7204AF4E500156B6B /* ResultsTableViewController.swift in Sources */,
@@ -323,7 +316,6 @@
 				56FDA546204A8A2200E15BD1 /* IntroChatViewController.swift in Sources */,
 				56FDA57F204AE92400E15BD1 /* DemoTextMessageHandler.swift in Sources */,
 				56FDA585204AE95F00E15BD1 /* MessagesSelectorProtocol.swift in Sources */,
-				1F5965CD204B3C7D00EC615F /* StartViewController.swift in Sources */,
 				56FDA58C204AEF5900E15BD1 /* DemoChatDataSource.swift in Sources */,
 				56FDA534204A834900E15BD1 /* AppDelegate.swift in Sources */,
 				56FDA581204AE92A00E15BD1 /* DemoTextMessageViewModel.swift in Sources */,
@@ -331,10 +323,10 @@
 				56FDA57E204AE91700E15BD1 /* BaseMessageHandler.swift in Sources */,
 				56FDA590204AEFA200E15BD1 /* MessagesSelectionChatViewController.swift in Sources */,
 				565E5203204B23F500156B6B /* ARSceneViewController.swift in Sources */,
+				565E5207204B243900156B6B /* Variables.swift in Sources */,
 				56FDA580204AE92700E15BD1 /* DemoTextMessageModel.swift in Sources */,
 				56FDA58B204AEF5900E15BD1 /* DemoChatMessageFactory.swift in Sources */,
 				56FDA588204AE97B00E15BD1 /* SlidingDatasSource.swift in Sources */,
-				1F5965D1204B51A000EC615F /* DataStore.swift in Sources */,
 				56FDA587204AE96500E15BD1 /* BaseMessagesSelector.swift in Sources */,
 				565E51FD204AFAD700156B6B /* TitleCell.swift in Sources */,
 			);
