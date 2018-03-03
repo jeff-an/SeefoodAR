@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669.60000000000002" y="32.833583208395808"/>
+            <point key="canvasLocation" x="588" y="33"/>
         </scene>
         <!--Intro Chat View Controller-->
         <scene sceneID="ge7-xo-Mcv">
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="1459" y="34"/>
         </scene>
-        <!--View Controller-->
+        <!--Results Table View Controller-->
         <scene sceneID="Vqx-6X-8YM">
             <objects>
-                <viewController id="skf-HI-Hwc" sceneMemberID="viewController">
+                <viewController id="skf-HI-Hwc" customClass="ResultsTableViewController" customModule="Seefood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7rO-Bc-nrb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,12 +107,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <navigationBar key="tableFooterView" contentMode="scaleToFill" id="WN8-ZH-o88">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem title="Title" id="8rh-1M-WMJ"/>
+                                    </items>
+                                </navigationBar>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="H4e-OD-bmi"/>
                     </view>
                     <connections>
+                        <outlet property="resultsTableView" destination="aup-qY-tbX" id="rfl-qX-9Bj"/>
                         <segue destination="2dM-ai-L5g" kind="show" id="uby-Sy-rnd"/>
                     </connections>
                 </viewController>
