@@ -9,9 +9,9 @@
 import UIKit
 
 class ResultsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var currCount = 1
+    var currCount = 0
     var selectedRow = 0
+    var results: [DishResult] = []
     let dishData = [
         [
             "imageId": "0",
@@ -36,6 +36,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         ],
     ]
     
+
     @IBOutlet weak var resultsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
