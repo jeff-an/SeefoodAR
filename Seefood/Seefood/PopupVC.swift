@@ -18,4 +18,7 @@ class PopupVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func CancelModalAction(_ sender: UIButton) {
+    }
 }
