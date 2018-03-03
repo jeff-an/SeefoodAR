@@ -13,4 +13,8 @@ class DataStore {
         "0": DishResult(imageId: "0", title: "Salmon Bento Box", restaurant: "Sushi Moto", price: "12.99", descripLabel: "Succulent, fresh salmon nigiri served with rice."),
         
     ]
+    
+    func getDishById(id: String) {
+        
+    }
 }
