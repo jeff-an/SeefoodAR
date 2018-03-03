@@ -52,7 +52,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         
         if indexPath.row > 0 {
            //put in custom titles and descrips
-            
+
         }
         cell.alpha = 0
         UIView.animate(withDuration: 0.75, animations: { cell.alpha = 1 })
@@ -64,8 +64,8 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-        tableview.reloadData()
-        tableview.reloadInputViews()
+        resultsTableView.reloadData()
+        resultsTableView.reloadInputViews()
     }
 
 }
