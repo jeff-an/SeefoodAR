@@ -17,16 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
-                                <rect key="frame" x="114" y="535" width="147" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
+                                <rect key="frame" x="67" y="383" width="241" height="73"/>
+                                <state key="normal" title="Button" image="continueBtn"/>
                                 <connections>
                                     <segue destination="TdP-Wd-MbK" kind="show" id="Mpz-Gj-3pE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
+                                <rect key="frame" x="63" y="289" width="248" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="81T-0q-RVK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Seefood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
+                                <rect key="frame" x="39" y="227" width="296" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="gzL-1D-9Ro"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="22a-17-EH4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S4u-4T-yfT" secondAttribute="bottom" constant="211" id="7g5-gn-ow4"/>
+                            <constraint firstItem="n1O-cE-dH2" firstAttribute="centerX" secondItem="S4u-4T-yfT" secondAttribute="centerX" id="8Lc-nU-nXB"/>
+                            <constraint firstItem="S4u-4T-yfT" firstAttribute="top" secondItem="n1O-cE-dH2" secondAttribute="bottom" constant="38" id="8fG-nx-Ltg"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tat-7i-OZw"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="centerX" secondItem="n1O-cE-dH2" secondAttribute="centerX" id="XRH-Jm-kYA"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="ZNW-0X-IRS"/>
+                            <constraint firstItem="aSF-EK-KcO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="aNb-c4-Awg"/>
+                            <constraint firstItem="n1O-cE-dH2" firstAttribute="top" secondItem="aSF-EK-KcO" secondAttribute="bottom" constant="23" id="w7T-gH-Iq7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -135,4 +163,7 @@
             <point key="canvasLocation" x="3090.4000000000001" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="continueBtn" width="747" height="222"/>
+    </resources>
 </document>
