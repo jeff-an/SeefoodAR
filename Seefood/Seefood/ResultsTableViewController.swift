@@ -10,8 +10,31 @@ import UIKit
 
 class ResultsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var currCount = 3
+    var currCount = 1
     var selectedRow = 0
+    let dishData = [
+        [
+            "imageId": "0",
+            "title": "Salmon Bento Box",
+            "restaurant": "Sushi Moto",
+            "price": "12.99",
+            "descripLabel": "Food"
+        ],
+        [
+            "imageId": "0",
+            "title": "Salmon Bento Box",
+            "restaurant": "Sushi Moto",
+            "price": "12.99",
+            "descripLabel": "Food"
+        ],
+        [
+            "imageId": "0",
+            "title": "Salmon Bento Box",
+            "restaurant": "Sushi Moto",
+            "price": "12.99",
+            "descripLabel": "Food"
+        ],
+    ]
     
     @IBOutlet weak var resultsTableView: UITableView!
     override func viewDidLoad() {
@@ -41,18 +64,21 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
-        cell.selectionStyle = .none
-        
         let titleCell: TitleCell = tableView.dequeueReusableCell(withIdentifier: "titlecell") as! TitleCell
         if(indexPath.row == 0){
             titleCell.isUserInteractionEnabled = false
             return titleCell
         }
-        
+        let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
+        cell.selectionStyle = .none
+        let dish = dishData[indexPath.row]
         if indexPath.row > 0 {
            //put in custom titles and descrips
-            
+            cell.foodImage.image = UIImage(named: dish["imageId"]!)
+            cell.title.text = dish["title"]!
+            cell.price.text = dish["price"]!
+            cell.restaurant.text = dish["restaurant"]!
+            cell.descripLabel.text = dish["descripLabel"]!
         }
         cell.alpha = 0
         UIView.animate(withDuration: 0.75, animations: { cell.alpha = 1 })
@@ -64,8 +90,8 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-        tableview.reloadData()
-        tableview.reloadInputViews()
+        resultsTableView.reloadData()
+        resultsTableView.reloadInputViews()
     }
 
 }
