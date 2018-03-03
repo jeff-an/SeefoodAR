@@ -19,46 +19,55 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2Pb-YE-xZE">
-                        <rect key="frame" x="0.0" y="0.0" width="335" height="136"/>
+                        <rect key="frame" x="18" y="0.0" width="298" height="136"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pad Thai With Shrimp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D8-y9-alP">
-                        <rect key="frame" x="110" y="21" width="188" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-nl-Toe">
-                        <rect key="frame" x="29" y="21" width="65" height="65"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padthai" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-nl-Toe">
+                        <rect key="frame" x="46" y="23" width="65" height="65"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="65" id="Bf3-81-bEv"/>
-                            <constraint firstAttribute="width" constant="65" id="ReU-k0-KC5"/>
+                            <constraint firstAttribute="width" constant="65" id="itq-J0-aNc"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$12.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpd-9m-ddy">
-                        <rect key="frame" x="110" y="69" width="45" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A northern Thai dish that is made from flour and spices…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g04-7j-hGQ">
+                        <rect key="frame" x="119" y="40" width="170" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$12.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpd-9m-ddy">
+                        <rect key="frame" x="119" y="70" width="45" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="WVx-LI-mfp"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                         <color key="textColor" red="0.25098039215686274" green="0.56470588235294117" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A northern Thai dish that is made from flour and spices…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g04-7j-hGQ">
-                        <rect key="frame" x="110" y="40" width="188" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pad Thai With Shrimp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D8-y9-alP">
+                        <rect key="frame" x="119" y="23" width="188" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="RBa-nl-Toe" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leadingMargin" constant="21" id="9q2-cS-7cy"/>
-                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leading" id="CGY-Zx-wvd"/>
-                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="top" id="HEv-Ge-KjL"/>
-                    <constraint firstAttribute="trailing" secondItem="2Pb-YE-xZE" secondAttribute="trailing" id="Ij7-hH-kNC"/>
-                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="centerY" secondItem="Ote-QS-bcT" secondAttribute="centerY" id="P0z-e9-y9g"/>
-                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="topMargin" constant="13" id="bwp-SZ-4uA"/>
-                    <constraint firstItem="9D8-y9-alP" firstAttribute="leading" secondItem="RBa-nl-Toe" secondAttribute="trailing" constant="16" id="gsf-T9-yxC"/>
-                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="9D8-y9-alP" secondAttribute="top" id="uQ7-7q-2u3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9D8-y9-alP" secondAttribute="trailing" constant="20" id="0cm-RO-Xhs"/>
+                    <constraint firstItem="Vpd-9m-ddy" firstAttribute="top" secondItem="9D8-y9-alP" secondAttribute="bottom" constant="26" id="6ed-Vs-g5g"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leadingMargin" constant="38" id="Edi-Zu-6eo"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leadingMargin" constant="10" id="Iri-nB-3qN"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="top" id="OjB-ga-eQ2"/>
+                    <constraint firstItem="Vpd-9m-ddy" firstAttribute="top" secondItem="g04-7j-hGQ" secondAttribute="bottom" id="QRF-of-0xw"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="centerY" secondItem="Ote-QS-bcT" secondAttribute="centerY" id="XOd-G2-WKB"/>
+                    <constraint firstItem="g04-7j-hGQ" firstAttribute="leading" secondItem="Vpd-9m-ddy" secondAttribute="leading" id="YCF-Hl-Np3"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="centerX" secondItem="Ote-QS-bcT" secondAttribute="centerX" id="aSN-Je-OJ3"/>
+                    <constraint firstItem="g04-7j-hGQ" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="topMargin" constant="32" id="hor-vM-TtD"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="9D8-y9-alP" secondAttribute="top" id="m4u-lh-m7N"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="bottom" secondItem="Vpd-9m-ddy" secondAttribute="bottom" id="mhl-z1-bfX"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="centerY" secondItem="g04-7j-hGQ" secondAttribute="centerY" id="mr3-uw-ROT"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="topMargin" constant="15" id="nmH-ym-erH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="g04-7j-hGQ" secondAttribute="trailing" constant="38" id="th5-J7-q9T"/>
+                    <constraint firstItem="9D8-y9-alP" firstAttribute="leading" secondItem="RBa-nl-Toe" secondAttribute="trailing" constant="8" symbolic="YES" id="uat-gj-Pu0"/>
+                    <constraint firstItem="9D8-y9-alP" firstAttribute="leading" secondItem="g04-7j-hGQ" secondAttribute="leading" id="vNm-Vh-wLi"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -72,5 +81,6 @@
     </objects>
     <resources>
         <image name="cellBackground" width="963" height="333"/>
+        <image name="padthai" width="65" height="65"/>
     </resources>
 </document>

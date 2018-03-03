@@ -10,7 +10,7 @@ import UIKit
 
 class ResultsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var currCount = 0
+    var currCount = 3
     var selectedRow = 0
     
     @IBOutlet weak var resultsTableView: UITableView!
@@ -29,7 +29,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.row == 0){
-            return 60
+            return 100
         }else{
             return 140
         }
@@ -61,6 +61,11 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+        tableview.reloadData()
+        tableview.reloadInputViews()
     }
 
 }

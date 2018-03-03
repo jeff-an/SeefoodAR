@@ -14,4 +14,8 @@ class ResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var descripLabel: UILabel!
     
+    override func awakeFromNib() {
+        foodImage.layer.cornerRadius = 7
+        foodImage.layer.masksToBounds = true
+    }
 }
