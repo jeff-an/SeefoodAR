@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Seefood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Seefood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,8 @@
                                 <rect key="frame" x="67" y="383" width="241" height="73"/>
                                 <state key="normal" title="Button" image="findBtn"/>
                                 <connections>
-                                    <segue destination="TdP-Wd-MbK" kind="show" id="Mpz-Gj-3pE"/>
+                                    <action selector="FindDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-xV-ztQ"/>
+                                    <segue destination="TdP-Wd-MbK" kind="show" identifier="FindDish" id="hU9-2P-2Kj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
@@ -46,7 +47,7 @@
                                 <rect key="frame" x="67" y="464" width="241" height="73"/>
                                 <state key="normal" title="Button" image="menuBtn"/>
                                 <connections>
-                                    <segue destination="skf-HI-Hwc" kind="show" id="Fdb-ws-3TS"/>
+                                    <segue destination="skf-HI-Hwc" kind="show" identifier="ShowMenuSegue" id="Fdb-ws-3TS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -212,7 +213,7 @@
                                     <fragment content="Pad Thai is a delicious dish that originated in Southeast Asia. Ingredients: Noodles, peanuts, sauce">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="15" name="SFProDisplay-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                             <real key="NSKern" value="1.8"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -261,6 +262,6 @@
         <image name="menuBtn" width="747" height="222"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fdb-ws-3TS"/>
+        <segue reference="sby-je-jzO"/>
     </inferredMetricsTieBreakers>
 </document>
