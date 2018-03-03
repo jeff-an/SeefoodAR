@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="105" id="leM-cB-5Wk" customClass="ResultsTableViewCell" customModule="Seefood" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="136"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="leM-cB-5Wk" id="Ote-QS-bcT">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="135.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2Pb-YE-xZE">
+                        <rect key="frame" x="0.0" y="0.0" width="335" height="136"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pad Thai With Shrimp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D8-y9-alP">
+                        <rect key="frame" x="110" y="21" width="188" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-nl-Toe">
+                        <rect key="frame" x="29" y="21" width="65" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="Bf3-81-bEv"/>
+                            <constraint firstAttribute="width" constant="65" id="ReU-k0-KC5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$12.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpd-9m-ddy">
+                        <rect key="frame" x="110" y="69" width="45" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                        <color key="textColor" red="0.25098039215686274" green="0.56470588235294117" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A northern Thai dish that is made from flour and spices…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g04-7j-hGQ">
+                        <rect key="frame" x="110" y="40" width="188" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leadingMargin" constant="21" id="9q2-cS-7cy"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="leading" secondItem="Ote-QS-bcT" secondAttribute="leading" id="CGY-Zx-wvd"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="top" id="HEv-Ge-KjL"/>
+                    <constraint firstAttribute="trailing" secondItem="2Pb-YE-xZE" secondAttribute="trailing" id="Ij7-hH-kNC"/>
+                    <constraint firstItem="2Pb-YE-xZE" firstAttribute="centerY" secondItem="Ote-QS-bcT" secondAttribute="centerY" id="P0z-e9-y9g"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="Ote-QS-bcT" secondAttribute="topMargin" constant="13" id="bwp-SZ-4uA"/>
+                    <constraint firstItem="9D8-y9-alP" firstAttribute="leading" secondItem="RBa-nl-Toe" secondAttribute="trailing" constant="16" id="gsf-T9-yxC"/>
+                    <constraint firstItem="RBa-nl-Toe" firstAttribute="top" secondItem="9D8-y9-alP" secondAttribute="top" id="uQ7-7q-2u3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descripLabel" destination="g04-7j-hGQ" id="Z9D-Oq-Oo8"/>
+                <outlet property="foodImage" destination="RBa-nl-Toe" id="1IV-8q-6Fb"/>
+                <outlet property="price" destination="Vpd-9m-ddy" id="lDU-Bq-MOv"/>
+                <outlet property="title" destination="9D8-y9-alP" id="BZn-Qe-IKP"/>
+            </connections>
+            <point key="canvasLocation" x="154.5" y="-44"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cellBackground" width="963" height="333"/>
+    </resources>
+</document>

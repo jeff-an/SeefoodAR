@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titlecell" rowHeight="14" id="dER-F9-fOU" customClass="TitleCell" customModule="Seefood" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dER-F9-fOU" id="FDY-6d-ksh">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CI-Sn-KKX">
+                        <rect key="frame" x="8" y="10" width="319" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="319" id="6o1-ID-y59"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="2CI-Sn-KKX" firstAttribute="centerY" secondItem="FDY-6d-ksh" secondAttribute="centerY" id="IHo-0D-HSu"/>
+                    <constraint firstItem="2CI-Sn-KKX" firstAttribute="leading" secondItem="FDY-6d-ksh" secondAttribute="leadingMargin" id="W9W-Lg-5gv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sectionTitleLabel" destination="2CI-Sn-KKX" id="tq4-rv-eBK"/>
+                <outlet property="textLabel" destination="2CI-Sn-KKX" id="29u-i2-8fT"/>
+            </connections>
+            <point key="canvasLocation" x="154.5" y="-90"/>
+        </tableViewCell>
+    </objects>
+</document>
