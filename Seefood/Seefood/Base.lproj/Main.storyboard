@@ -198,10 +198,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tp-IL-Ruw" userLabel="Calhacks occurred on the weekend of October 6 to October 8 2017.">
                                 <rect key="frame" x="0.0" y="144" width="375" height="495"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Calhacks occurred on the weekend of October 6 to October 8 2017.">
+                                    <fragment content="Pad Thai is a delicious dish that originated in Southeast Asia. Ingredients: Noodles, peanuts, sauce">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="15" name="Avenir-Roman"/>
+                                            <font key="NSFont" size="15" name="SFProDisplay-Regular"/>
                                             <real key="NSKern" value="1.8"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>

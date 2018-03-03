@@ -29,7 +29,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate{
         if let dataVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DataVC") as? DataViewController{
             self.dataVC = dataVC
             
-            dataVC.view.frame =  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 200)
+            dataVC.view.frame =  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 150)
             dataSize = dataVC.view.frame.size
             dataVC.view.frame.origin.y = self.view.frame.height - self.dataYOffset
             self.addChildViewController(dataVC)
