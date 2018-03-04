@@ -10,14 +10,15 @@ import Foundation
 class DishResult {
     var data: [String: Any] = [:]
     
-    init(imageId: String, title: String, restaurant: String, price: Double?, descripLabel: String?, size: MealSize?, requests: [SpecialRequests]?) {
+    init(imageId: String, title: String, restaurant: String, price: Double?, descripLabel: String?, size: MealSize?, requests: [SpecialRequest]?, cuisine: Cuisine?) {
         data["imageId"] = imageId
         data["title"] = title
         data["restaurant"] = restaurant
         data["price"] = price ?? "Price not available online"
         data["descripLabel"] = descripLabel ?? "See restaurant menu for description"
         data["size"] = size ?? MealSize.MEDIUM
-        data["specialRequests"] = requests ?? []
+        data["requests"] = requests ?? []
+        data["cuisine"] = cuisine ?? Cuisine.COMFORT
     }
     
     subscript(key: String) -> Any {

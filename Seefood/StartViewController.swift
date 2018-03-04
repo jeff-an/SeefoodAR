@@ -21,6 +21,11 @@ class StartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func presentModal() {
+        let modalController = PopupVC()
+        modalController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        present(modalController, animated: true, completion: nil)
+    }
 
     @IBAction func FindDishAction(_ sender: Any) {
         self.performSegue(withIdentifier: "FindDish", sender: sender)
@@ -33,7 +38,7 @@ class StartViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+    @IBAction func unwindToViewControllerStartController(segue: UIStoryboardSegue) {
     }
 
 }

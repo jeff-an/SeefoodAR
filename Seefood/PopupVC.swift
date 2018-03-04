@@ -19,9 +19,6 @@ class PopupVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func CancelModalAction(_ sender: UIButton) {
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "RestaurantSelectAction") {
             ResultsTableViewController.receiveRestaurantName(name: self.TextAction.text!)

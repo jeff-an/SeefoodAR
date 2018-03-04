@@ -21,7 +21,7 @@ enum MealSize {
     case LARGE
 }
 
-enum SpecialRequests {
+enum SpecialRequest {
     case SPICY
     case MILD
     case ORGANIC
@@ -29,15 +29,25 @@ enum SpecialRequests {
     case VEGETARIAN
 }
 
+enum Cuisine {
+    case JAPANESE
+    case KOREAN
+    case CHINESE
+    case AMERICAN
+    case COMFORT
+    case INDIAN
+}
+
 class DataStore {
-    let dishById: [String: DishResult] = [
+    let dishesByID: [String: DishResult] = [
         "0": DishResult(imageId: "0",
                         title: "Salmon Bento Box",
                         restaurant: "Sushi Moto",
                         price: 12.99,
                         descripLabel: "Succulent, fresh salmon nigiri served with rice.",
                         size: MealSize.SMALL,
-                        requests: nil
+                        requests: nil,
+                        cuisine: Cuisine.JAPANESE
         ),
         
         "1": DishResult(imageId: "1",
@@ -46,7 +56,8 @@ class DataStore {
                         price: 12.99,
                         descripLabel: "Salmon Bento Box, except with Tuna.",
                         size: nil,
-                        requests: nil
+                        requests: nil,
+                        cuisine: nil
         ),
         
         ]
@@ -54,10 +65,10 @@ class DataStore {
     var dishesByRestaurant: [String: [DishResult]] = [:]
     
     func getDishById(id: String) -> DishResult {
-        if let dish = dishById[id] {
+        if let dish = dishesByID[id] {
             return dish
         }
-        return dishById["0"]!
+        return dishesByID["0"]!
     }
     
     func getDishesByRestaurant(name: String) -> [DishResult] {
@@ -67,13 +78,25 @@ class DataStore {
         return dishesByRestaurant["Sushi Moto"]!
     }
     
-    func filterDishes(filters: (DishResult) -> Bool) -> [DishResult] {
-        return [dishById["0"]!]
+    func filterDishes(cuisine: Cuisine?, size: MealSize?, requests: [SpecialRequest]?) -> [DishResult] {
+        var allData = Array(dishesByID.values)
+        if requests != nil && requests! != [] {
+            allData = allData.filter({ dish in return requests!.reduce(true, {
+                (acc: Bool, elm: SpecialRequest) -> Bool in return acc && (dish["requests"] as! [SpecialRequest]).contains(elm)
+            })})
+        }
+        if cuisine != nil && allData.count > 0 {
+            allData = allData.filter({ dish in return dish["cuisine"] as? Cuisine == cuisine })
+        }
+        if size != nil && allData.count > 0 {
+            allData = allData.filter({ dish in return dish["size"] as? MealSize == size })
+        }
+        return allData
     }
     
     init() {
         // Group all dishes by restaurant
-        for (_, dish) in dishById {
+        for (_, dish) in dishesByID {
             let restaurant = dish["restaurant"] as! String
             if var dishes = dishesByRestaurant[restaurant] {
                 dishes.append(dish)

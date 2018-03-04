@@ -122,26 +122,12 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         assert(ResultsTableViewController.isRestaurantSearch || ResultsTableViewController.isGeneralDishSearch, "Attempting to render search results without setting a search mode")
         let titleCell: TitleCell = tableView.dequeueReusableCell(withIdentifier: "titlecell") as! TitleCell
-        let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
-        cell.selectionStyle = .none
-        
+
         if(indexPath.row == 0){
             titleCell.isUserInteractionEnabled = false
             return titleCell
-        }else{
-            let dish = dishData[indexPath.row - 1]
-            if indexPath.row > 0 {
-                //put in custom titles and descrips
-                cell.foodImage.image = UIImage(named: dish["imageId"]!)
-                cell.title.text = dish["title"]!
-                cell.price.text = dish["price"]!
-                cell.restaurant.text = dish["restaurant"]!
-                cell.descripLabel.text = dish["descripLabel"]!
-            }
-            cell.alpha = 0
-            UIView.animate(withDuration: 0.75, animations: { cell.alpha = 1 })
-            return cell
         }
+        
         let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
         cell.selectionStyle = .none
         let dish = dishData[indexPath.row]
