@@ -50,6 +50,7 @@ let organicVegetarianSpicy = [SpecialRequest.NONE, SpecialRequest.ORGANIC, Speci
 class DataStore {
     var currentItem = 0
 
+    // make-shift sql database
     let dishesByID: [String: DishResult] = [
         "0": DishResult(imageId: "0",
                         title: "Salmon Bento Box",
@@ -92,9 +93,9 @@ class DataStore {
         
         "californiaRoll": DishResult(imageId: "californiaRoll",
                                      title: "California Roll",
-                                     restaurant: "Maki Yaki",
+                                     restaurant: "Sushi Queen",
                                      price: 6.99,
-                                     descripLabel: "8pc california roll served with miso soup.",
+                                     descripLabel: "8pcs california roll served with miso soup.",
                                      size: MealSize.SMALL,
                                      requests: organicVegetarianMild,
                                      cuisine: Cuisine.JAPANESE),
@@ -145,35 +146,54 @@ class DataStore {
                                    requests: organicGlutenMild,
                                    cuisine: Cuisine.JAPANESE),
         
-            /**
-            [
-                "imageId": "shrimpNigiri",
-                "title": "Shrimp Nigiri",
-                "restaurant": "Maki Yaki",
-                "price": "12.99",
-                "descripLabel": "Food"
-            ],
-            [
-                "imageId": "tamagoNigiri",
-                "title": "Tamago",
-                "restaurant": "Maki Yaki",
-                "price": "12.99",
-                "descripLabel": "Food"
-            ],
-            [
-                "imageId": "cheeseburger",
-                "title": "Cheeseburger",
-                "restaurant": "Caltech Chandler Cafe",
-            ],
-            [
-                "imageId": "cookie",
-                "title": "Chocolate Chip Cookies",
-                "restaurant": "Caltech Chandler Cafe",
-                "price": "1.99",
-                "descripLabel": "Food"
-            ]
-    ]**/
+        "tamagoNigiri": DishResult(imageId: "tamagoNigiri",
+                                   title: "Tamago Nigiri",
+                                   restaurant: "Sushi Queen",
+                                   price: 6.29,
+                                   descripLabel: "6pcs slices of Tamago nigiri.",
+                                   size: MealSize.SMALL,
+                                   requests: organicGlutenMild,
+                                   cuisine: Cuisine.JAPANESE),
         
+        "cheeseburger": DishResult(imageId: "cheeseburger",
+                                   title: "Cheeseburger",
+                                   restaurant: "Caltech Chandler Cafe",
+                                   price: 8.99,
+                                   descripLabel: "Angus beef burger with cheddar cheese.",
+                                   size: MealSize.LARGE,
+                                   requests: [SpecialRequest.NONE],
+                                   cuisine: Cuisine.AMERICAN),
+        
+        "cookie": DishResult(imageId: "cookie",
+                            title: "Chocolate Chip Cookie",
+                            restaurant: "Caltech Chandler Cafe",
+                            price: 1.99,
+                            descripLabel: "Cookie with large chocolate chunks.",
+                            size: MealSize.SMALL,
+                            requests: [SpecialRequest.NONE],
+                            cuisine: Cuisine.AMERICAN),
+        
+        "padthai": DishResult(imageId: "padthai",
+                              title: "Pad Thai",
+                              restaurant: "Rice Thai Tapas",
+                              price: 14.99,
+                              descripLabel: "House-favorite pad thai dish with chicken and signature peanut sauce.",
+                              size: MealSize.LARGE,
+                              requests: [SpecialRequest.NONE],
+                              cuisine: Cuisine.CHINESE
+        ),
+        
+        "mutterPaneer": DishResult(imageId: "mutterPaneer",
+                                   title: "Mutter Paneer",
+                                   restaurant: "Indian Legend",
+                                   price: 7.99,
+                                   descripLabel: "Cottage cheese and green pea Indian dish",
+                                   size: MealSize.MEDIUM,
+                                   requests: organicVegetarianSpicy,
+                                   cuisine: Cuisine.INDIAN),
+        
+        
+
         ]
     
     var dishesByRestaurant: [String: [DishResult]] = [:]
@@ -189,7 +209,7 @@ class DataStore {
         if let dishes = dishesByRestaurant[name] {
             return dishes
         }
-        return dishesByRestaurant["Sushi Moto"]!
+        return []
     }
     
     func filterDishes(cuisine: Cuisine?, size: MealSize?, requests: [SpecialRequest]?) -> [DishResult] {
