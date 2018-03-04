@@ -27,6 +27,7 @@ enum SpecialRequest {
     case ORGANIC
     case GLUTENFREE
     case VEGETARIAN
+    case NONE
 }
 
 enum Cuisine {
@@ -38,15 +39,23 @@ enum Cuisine {
     case INDIAN
 }
 
+let organicGlutenMild = [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD, SpecialRequest.GLUTENFREE]
+
+let organicGlutenSpicy = [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.SPICY, SpecialRequest.GLUTENFREE]
+
+let organicVegetarianMild = [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD, SpecialRequest.VEGETARIAN]
+
+let organicVegetarianSpicy = [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.SPICY, SpecialRequest.VEGETARIAN]
+
 class DataStore {
     let dishesByID: [String: DishResult] = [
         "0": DishResult(imageId: "0",
                         title: "Salmon Bento Box",
                         restaurant: "Sushi Moto",
-                        price: 12.99,
+                        price: 15.99,
                         descripLabel: "Succulent, fresh salmon nigiri served with rice.",
-                        size: MealSize.SMALL,
-                        requests: nil,
+                        size: MealSize.LARGE,
+                        requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
                         cuisine: Cuisine.JAPANESE
         ),
         
@@ -59,6 +68,81 @@ class DataStore {
                         requests: nil,
                         cuisine: nil
         ),
+        
+        "salmonNigiri": DishResult(imageId: "salmonNigiri",
+                title: "Salmon Nigiri",
+                restaurant: "Maki Yaki",
+                price: 8.00,
+                descripLabel: "",
+                size: nil,
+                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                cuisine: Cuisine.JAPANESE
+        ),
+        
+        "tunaNigiri": DishResult(imageId: "tunaNigiri",
+                title: "Tuna Nigiri",
+                restaurant: "Maki Yaki",
+                price: 8.00,
+                descripLabel: "Fresh slices of raw tuna caught off the West Coast",
+                size: MealSize.SMALL,
+                requests: organicGlutenMild,
+                cuisine: Cuisine.JAPANESE),
+        /**
+            [
+                "imageId": "californiaRoll",
+                "title": "California Roll",
+                "restaurant": "Maki Yaki",
+                "price": "6.99",
+                "descripLabel": "8pc california roll served with miso soup."
+            ],
+            [
+                "imageId": "spicyTunaRoll",
+                "title": "Spicy Tuna Roll",
+                "restaurant": "Maki Yaki",
+                "price": "12.99",
+                "descripLabel": "Food"
+            ],
+            [
+                "imageId": "unagiNigiri",
+                "title": "Unagi Nigiri",
+                "restaurant": "Maki Yaki",
+                "price": "12.99",
+                "descripLabel": "Food"
+            ],
+            [
+                "imageId": "yellowtailNigiri",
+                "title": "Yellow Tail Nigiri",
+                "restaurant": "Maki Yaki",
+                "price": "12.99",
+                "descripLabel": "Food"
+            ],
+            [
+                "imageId": "shrimpNigiri",
+                "title": "Shrimp Nigiri",
+                "restaurant": "Maki Yaki",
+                "price": "12.99",
+                "descripLabel": "Food"
+            ],
+            [
+                "imageId": "tamagoNigiri",
+                "title": "Tamago",
+                "restaurant": "Maki Yaki",
+                "price": "12.99",
+                "descripLabel": "Food"
+            ],
+            [
+                "imageId": "cheeseburger",
+                "title": "Cheeseburger",
+                "restaurant": "Caltech Chandler Cafe",
+            ],
+            [
+                "imageId": "cookie",
+                "title": "Chocolate Chip Cookies",
+                "restaurant": "Caltech Chandler Cafe",
+                "price": "1.99",
+                "descripLabel": "Food"
+            ]
+    ]**/
         
         ]
     
