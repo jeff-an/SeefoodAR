@@ -108,6 +108,7 @@ class DataStore {
                                 requests: [SpecialRequest.NONE, SpecialRequest.MILD],
                                 cuisine: Cuisine.JAPANESE
                             ),
+        
         "unagiNigiri": DishResult(imageId: "unagiNigiri",
                                   title: "Unagi Nigiri",
                                   restaurant: "Sushi Moto",
@@ -125,23 +126,26 @@ class DataStore {
                                     size: MealSize.SMALL,
                                     requests: organicGlutenSpicy,
                                     cuisine: Cuisine.JAPANESE),
-
+        
+        "yellowtailNigiri": DishResult(imageId: "yellowtailNigiri",
+                                       title: "Yellow Tail Nigiri",
+                                       restaurant: "Sushi Moto",
+                                       price: 12.99,
+                                       descripLabel: "Japanese amberjack fish. Extremely high in protein!",
+                                       size: MealSize.SMALL,
+                                       requests: organicGlutenMild,
+                                       cuisine: Cuisine.JAPANESE),
+        
+        "shrimpNigiri": DishResult(imageId: "shrimpNigiri",
+                                   title: "Shrimp Nigiri",
+                                   restaurant: "Sushi Moto",
+                                   price: 5.29,
+                                   descripLabel: "Slices of parcooked shrimp atop rice. Source of omega fatty acids.",
+                                   size: MealSize.SMALL,
+                                   requests: organicGlutenMild,
+                                   cuisine: Cuisine.JAPANESE),
+        
             /**
-            [
-        "spicyTunaRoll": Dish
-                "imageId": "unagiNigiri",
-                "title": "Unagi Nigiri",
-                "restaurant": "Maki Yaki",
-                "price": "12.99",
-                "descripLabel": "Food"
-            ],
-            [
-                "imageId": "yellowtailNigiri",
-                "title": "Yellow Tail Nigiri",
-                "restaurant": "Maki Yaki",
-                "price": "12.99",
-                "descripLabel": "Food"
-            ],
             [
                 "imageId": "shrimpNigiri",
                 "title": "Shrimp Nigiri",
