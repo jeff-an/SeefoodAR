@@ -97,6 +97,14 @@ class IntroChatViewController: BaseChatViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        self.view.addSubview(navBar);
+        let navItem = UINavigationItem(title: "Chat");
+        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: nil, action: "selector");
+        navItem.leftBarButtonItem = doneItem;
+        navBar.setItems([navItem], animated: false);
+        
         self.chatDataSource = self.dataSource
         self.messageSender = self.dataSource.messageSender
         self.title = "Chat"
@@ -143,34 +151,6 @@ class IntroChatViewController: BaseChatViewController {
             self?.dataSource.respondToText(type: type!, text: text, vc: self!)
             print("Sending payload with type " + type! + " and text " + text)
             self?.currtxt = text
-            /**
-            if(DemoChatMessageFactory.messageindex == 0){
-                DemoChatMessageFactory.messageindex = 1
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[2], isIncoming: true)
-            }
-            else if(DemoChatMessageFactory.messageindex == 2){
-                DemoChatMessageFactory.messageindex = 3
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[3], isIncoming: true)
-            }
-            else if(DemoChatMessageFactory.messageindex == 3 && self?.currtxt.lowercased() == "yes"){
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[5], isIncoming: true)
-                DemoChatMessageFactory.messageindex = 4
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[9], isIncoming: true)
-            }
-            else if(DemoChatMessageFactory.messageindex == 3 && self?.currtxt.lowercased() == "no"){
-                DemoChatMessageFactory.messageindex = 5
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[4], isIncoming: true)
-            }
-            else if(DemoChatMessageFactory.messageindex == 5 && self?.currtxt.lowercased() == "negative"){
-                DemoChatMessageFactory.messageindex = 6
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[6], isIncoming: true)
-                
-            }
-                //repeat that
-            else{
-                self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[6], isIncoming: true)
-            }
-            **/
         }
         return item
     }
