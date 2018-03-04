@@ -4,7 +4,14 @@
 //
 //  Created by Jeff on 2018-03-03.
 //  Copyright © 2018 Duvelop. All rights reserved.
-
+//
+//
+//  DataStore.swift
+//  Seefood
+//
+//  Created by Jeff on 2018-03-03.
+//  Copyright © 2018 Duvelop. All rights reserved.
+//
 import Foundation
 
 enum MealSize {
@@ -44,24 +51,24 @@ class DataStore {
     
     // make-shift sql database
     let dishesByID: [String: DishResult] = [
-        "0": DishResult(imageId: "salmonNigiri",
-                        title: "Salmon Bento Box",
-                        restaurant: "Sushi Moto",
-                        price: 15.99,
-                        descripLabel: "Succulent, fresh salmon nigiri served with rice.",
-                        size: MealSize.LARGE,
-                        requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
-                        cuisine: Cuisine.JAPANESE
+        "salmonBento": DishResult(imageId: "salmonBento",
+                                  title: "Salmon Bento Box",
+                                  restaurant: "Sushi Moto",
+                                  price: 15.99,
+                                  descripLabel: "Succulent, fresh salmon nigiri served with rice.",
+                                  size: MealSize.LARGE,
+                                  requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                                  cuisine: Cuisine.JAPANESE
         ),
         
-        "1": DishResult(imageId: "tunaNigiri",
-                        title: "Tuna Bento Box",
-                        restaurant: "Sushi Moto",
-                        price: 12.99,
-                        descripLabel: "Salmon Bento Box, except with Tuna.",
-                        size: nil,
-                        requests: nil,
-                        cuisine: nil
+        "tunaBento": DishResult(imageId: "tunaBento",
+                                title: "Tuna Bento Box",
+                                restaurant: "Sushi Moto",
+                                price: 12.99,
+                                descripLabel: "Salmon Bento Box, except with Tuna.",
+                                size: MealSize.LARGE,
+                                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                                cuisine: Cuisine.JAPANESE
         ),
         
         "salmonNigiri": DishResult(imageId: "salmonNigiri",
@@ -177,15 +184,69 @@ class DataStore {
         
         "mutterPaneer": DishResult(imageId: "mutterPaneer",
                                    title: "Mutter Paneer",
-                                   restaurant: "Indian Legend",
+                                   restaurant: "Annapurna Grill",
                                    price: 7.99,
                                    descripLabel: "Cottage cheese and green pea Indian dish",
                                    size: MealSize.MEDIUM,
                                    requests: organicVegetarianSpicy,
                                    cuisine: Cuisine.INDIAN),
         
+        "beefRoganjosh": DishResult(imageId: "beefRoganjosh",
+                                    title: "Beef Roganjosh",
+                                    restaurant: "New Delhi Palace",
+                                    price: 7.99,
+                                    descripLabel: "Beef stir fried with tomatoes, onion, lime, and garlic.",
+                                    size: MealSize.MEDIUM,
+                                    requests: [SpecialRequest.NONE, SpecialRequest.SPICY, SpecialRequest.MILD],
+                                    cuisine: Cuisine.INDIAN),
         
+        "veggieBurger": DishResult(imageId: "veggieBurger",
+                                   title: "Veggie Burger",
+                                   restaurant: "Paul Martin's",
+                                   price: 16.00,
+                                   descripLabel: "vegetarian three-mushroom patty, dressed arugula, pesto aioli",
+                                   size: MealSize.LARGE,
+                                   requests: [SpecialRequest.NONE, SpecialRequest.VEGETARIAN],
+                                   cuisine: Cuisine.AMERICAN),
         
+        "quinoaBowl": DishResult(imageId: "quinoaBowl",
+                                 title: "Seasonal Quinoa Bowl",
+                                 restaurant: "Paul Martin's",
+                                 price: 18.00,
+                                 descripLabel: "Savoy spinach, blistered tomatoes, fresh vegetables, grilled avocado, served warm",
+                                 size: MealSize.MEDIUM,
+                                 requests: [SpecialRequest.NONE,SpecialRequest.GLUTENFREE, SpecialRequest.VEGETARIAN, SpecialRequest.MILD],
+                                 cuisine: Cuisine.AMERICAN),
+        
+        "bibimbap": DishResult(imageId: "bibimbap",
+                               title: "Dolsat BiBimBap",
+                               restaurant: "Teri & Yaki",
+                               price: 13.99,
+                               descripLabel: "Fried rice, beef, egg, and assorted vegetables in a stone bowl.",
+                               size: MealSize.LARGE,
+                               requests: [SpecialRequest.NONE,SpecialRequest.MILD, SpecialRequest.SPICY],
+                               cuisine: Cuisine.KOREAN
+        ),
+        
+        "bulgogi": DishResult(imageId: "bulgogi",
+                              title: "Bulgogi",
+                              restaurant: "Teri & Yaki",
+                              price: 13.99,
+                              descripLabel: "Thin, marinated slices of beef or pork grilled on a barbecue or on a stove-top griddle",
+                              size: MealSize.LARGE,
+                              requests: [SpecialRequest.MILD, SpecialRequest.SPICY, SpecialRequest.NONE],
+                              cuisine: Cuisine.KOREAN
+        ),
+        
+        "gamjatang": DishResult(imageId: "gamjatang",
+                                title: "Gamjatang",
+                                restaurant: "Soh Grill House",
+                                price: 12.99,
+                                descripLabel: "Spicy Korean soup made from the spine and neck bones of a pig",
+                                size: MealSize.LARGE,
+                                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.NONE, SpecialRequest.SPICY],
+                                cuisine: Cuisine.KOREAN
+        ),
         ]
     
     var dishesByRestaurant: [String: [DishResult]] = [:]
@@ -206,17 +267,21 @@ class DataStore {
     
     func filterDishes(cuisine: Cuisine?, size: MealSize?, requests: [SpecialRequest]?) -> [DishResult] {
         var allData = Array(dishesByID.values)
+        print(allData)
         if requests != nil && requests! != [] {
             allData = allData.filter({ dish in return requests!.reduce(true, {
                 (acc: Bool, elm: SpecialRequest) -> Bool in return acc && (dish["requests"] as! [SpecialRequest]).contains(elm)
             })})
         }
+        print(allData)
         if cuisine != nil {
             allData = allData.filter({ dish in return dish["cuisine"] as? Cuisine == cuisine })
         }
+        print(allData)
         if size != nil {
             allData = allData.filter({ dish in return dish["size"] as? MealSize == size })
         }
+        print(allData)
         return allData
     }
     
