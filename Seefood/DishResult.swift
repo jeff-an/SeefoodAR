@@ -17,7 +17,7 @@ class DishResult {
         data["price"] = price ?? "Price not available online"
         data["descripLabel"] = descripLabel ?? "See restaurant menu for description"
         data["size"] = size ?? MealSize.MEDIUM
-        data["requests"] = requests ?? []
+        data["requests"] = requests ?? [SpecialRequest.NONE]
         data["cuisine"] = cuisine ?? Cuisine.COMFORT
     }
     
