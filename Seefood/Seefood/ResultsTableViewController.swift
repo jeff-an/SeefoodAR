@@ -11,7 +11,14 @@ import UIKit
 class ResultsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var currCount = 0
     var selectedRow = 0
+
+    // Flag to determine whether the search is for all restaurants or for a specific one
+    var isRestaurantSearch = false
+    var isGeneralDishSearch = false
+    
+    var restaurantName = ""
     var results: [DishResult] = []
+    let dataStore = DataStore()
     let dishData = [
         [
             "imageId": "0",
@@ -65,6 +72,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        assert(isRestaurantSearch || isGeneralDishSearch, "Attempting to render search results without setting a search mode")
         let titleCell: TitleCell = tableView.dequeueReusableCell(withIdentifier: "titlecell") as! TitleCell
         if(indexPath.row == 0){
             titleCell.isUserInteractionEnabled = false
@@ -88,6 +96,15 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+    func receiveRestaurantName(name: String) {
+        // Set the restaurant name
+        self.isRestaurantSearch = true
+        self.restaurantName = name
+        
+        // Filter results
+        results = dataStore.getDishesByRestaurant(name: name)
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {

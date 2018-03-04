@@ -21,4 +21,10 @@ class PopupVC: UIViewController {
     
     @IBAction func CancelModalAction(_ sender: UIButton) {
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "RestaurantSelectAction") {
+            ResultsTableViewController
+        }
+    }
 }

@@ -46,6 +46,9 @@
                                         <rect key="frame" x="193" y="163" width="55" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Confirm"/>
+                                        <connections>
+                                            <segue destination="skf-HI-Hwc" kind="show" identifier="RestaurantSelectAction" id="lyd-SM-BAQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHg-SU-biv">
                                         <rect key="frame" x="57" y="163" width="48" height="30"/>
@@ -326,4 +329,7 @@
         <image name="findBtn" width="747" height="222"/>
         <image name="menuBtn" width="747" height="222"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lyd-SM-BAQ"/>
+    </inferredMetricsTieBreakers>
 </document>
