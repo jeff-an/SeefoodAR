@@ -87,22 +87,46 @@ class DataStore {
                 size: MealSize.SMALL,
                 requests: organicGlutenMild,
                 cuisine: Cuisine.JAPANESE),
-        /**
+        
+        "californiaRoll": DishResult(imageId: "californiaRoll",
+                                     title: "California Roll",
+                                     restaurant: "Maki Yaki",
+                                     price: 6.99,
+                                     descripLabel: "8pc california roll served with miso soup.",
+                                     size: MealSize.SMALL,
+                                     requests: organicVegetarianMild,
+                                     cuisine: Cuisine.JAPANESE),
+        
+        "goldenRoll": DishResult(imageId: "goldenRoll",
+                                title: "Golden Roll",
+                                restaurant: "Maki Yaki",
+                                price: 7.99,
+                                descripLabel: "Salmon with carrot avocado and tempura.",
+                                size: MealSize.MEDIUM,
+                                requests: [SpecialRequest.NONE, SpecialRequest.MILD],
+                                cuisine: Cuisine.JAPANESE
+                            ),
+        "unagiNigiri": DishResult(imageId: "unagiNigiri",
+                                  title: "Unagi Nigiri",
+                                  restaurant: "Sushi Moto",
+                                  price: 6.49,
+                                  descripLabel: "Freshwater eel wrapped in seeweed.",
+                                  size: MealSize.SMALL,
+                                  requests: [SpecialRequest.NONE, SpecialRequest.MILD],
+                                  cuisine: Cuisine.JAPANESE),
+        
+        "spicyTunaRoll": DishResult(imageId: "spicyTunaRoll",
+                                    title: "Spicy Tuna Roll",
+                                    restaurant: "Sushi Moto",
+                                    price: 7.99,
+                                    descripLabel: "Fresh tuna topped with zesty orange sauce.",
+                                    size: MealSize.SMALL,
+                                    requests: organicGlutenSpicy,
+                                    cuisine: Cuisine.JAPANESE),
+
+            /**
             [
-                "imageId": "californiaRoll",
-                "title": "California Roll",
-                "restaurant": "Maki Yaki",
-                "price": "6.99",
-                "descripLabel": "8pc california roll served with miso soup."
-            ],
-            [
-                "imageId": "spicyTunaRoll",
-                "title": "Spicy Tuna Roll",
-                "restaurant": "Maki Yaki",
-                "price": "12.99",
-                "descripLabel": "Food"
-            ],
-            [
+        "spicyTunaRoll": Dish
                 "imageId": "unagiNigiri",
                 "title": "Unagi Nigiri",
                 "restaurant": "Maki Yaki",
@@ -169,10 +193,10 @@ class DataStore {
                 (acc: Bool, elm: SpecialRequest) -> Bool in return acc && (dish["requests"] as! [SpecialRequest]).contains(elm)
             })})
         }
-        if cuisine != nil && allData.count > 0 {
+        if cuisine != nil {
             allData = allData.filter({ dish in return dish["cuisine"] as? Cuisine == cuisine })
         }
-        if size != nil && allData.count > 0 {
+        if size != nil {
             allData = allData.filter({ dish in return dish["size"] as? MealSize == size })
         }
         return allData
