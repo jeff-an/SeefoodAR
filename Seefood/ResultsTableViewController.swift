@@ -18,79 +18,6 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     static var results: [DishResult] = []
     
     static let dataStore = DataStore()
-    let dishData = [
-        [
-            "imageId": "salmonNigiri",
-            "title": "Salmon Nigiri",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "tunaNigiri",
-            "title": "Tuna Nigiri",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "dumpling",
-            "title": "Chicken Dumpling",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "californiaRoll",
-            "title": "California Roll",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "spicyTunaRoll",
-            "title": "Spicy Tuna Roll",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "unagi",
-            "title": "Unagi",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "yellowtailNigiri",
-            "title": "Yellow Tail Nigiri",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "shrimpNigiri",
-            "title": "Shrimp Nigiri",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "tamago",
-            "title": "Tamago",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ],
-        [
-            "imageId": "cookie",
-            "title": "Chocolate Chip Cookies",
-            "restaurant": "Sushi Moto",
-            "price": "12.99",
-            "descripLabel": "Food"
-        ]
-    ]
-    
     
     @IBOutlet weak var resultsTableView: UITableView!
     override func viewDidLoad() {
@@ -103,7 +30,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dishData.count + 1
+        return ResultsTableViewController.results.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -131,7 +58,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         let cell : ResultsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultsTableViewCell
         cell.selectionStyle = .none
         if indexPath.row > 0 {
-            let dish = dishData[indexPath.row - 1]
+            let dish = ResultsTableViewController.results[indexPath.row - 1]
             //put in custom titles and descrips
             cell.foodImage.image = UIImage(named: dish["imageId"]!)
             cell.title.text = dish["title"]!
@@ -152,9 +79,13 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         // Set the restaurant name
         ResultsTableViewController.isRestaurantSearch = true
         ResultsTableViewController.restaurantName = name
-        
         // Filter results
         results = dataStore.getDishesByRestaurant(name: name)
+    }
+    
+    static func receiveChatResults(cuisine: Cuisine?, size: MealSize?, requests: [SpecialRequest]?) {
+        ResultsTableViewController.isGeneralDishSearch = true
+        results = dataStore.filterDishes(cuisine: cuisine, size: size, requests: requests)
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {

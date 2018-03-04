@@ -139,11 +139,9 @@ class IntroChatViewController: BaseChatViewController {
         let item = TextChatInputItem()
         item.textInputHandler = { [weak self] text in
             self?.dataSource.addTextMessage(text: text, isIncoming: false)
+            self?.dataSource.respondToText(type: (self?.modes[(self?.currentMode)!])!, text: text, vc: self!)
             self?.currtxt = text
-            
-            
-            
-            //positive
+            /**
             if(DemoChatMessageFactory.messageindex == 0){
                 DemoChatMessageFactory.messageindex = 1
                 self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[2], isIncoming: true)
@@ -170,6 +168,7 @@ class IntroChatViewController: BaseChatViewController {
             else{
                 self?.dataSource.addTextMessage(text: DemoChatMessageFactory.demoTexts[6], isIncoming: true)
             }
+            **/
         }
         return item
     }

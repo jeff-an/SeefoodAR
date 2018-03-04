@@ -112,12 +112,13 @@ class DemoChatDataSource: ChatDataSourceProtocol {
     }
 
 
-    func respondToText(type: String, text: String, vc: BaseChatViewController) {
+    func respondToText(type: String, text: String, vc: IntroChatViewController) {
         let payload = [ "type": type, "query": text ]
         func callback(response: String) {
             self.addTextMessage(text: response, isIncoming: true)
-            
+            vc.advanceMode(response: response)
         }
+        putContent(payload: payload, callback: callback)
     }
     
     /*
