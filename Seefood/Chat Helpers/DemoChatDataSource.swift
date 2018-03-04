@@ -85,6 +85,41 @@ class DemoChatDataSource: ChatDataSourceProtocol {
         self.delegate?.chatDataSourceDidUpdate(self)
     }
     
+    func putContent(payload: [String: String], callback: @escaping (String) -> Void) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: payload, options: []) {
+            let url = NSURL(string: "http://ffe29f01.ngrok.io/chat")!
+            let request = NSMutableURLRequest(url: url as URL)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    return
+                }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    if let parseJSON = json {
+                        let resultValue:String = parseJSON["success"] as! String;
+                        callback(resultValue)
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            task.resume()
+        }
+    }
+
+
+    func respondToText(type: String, text: String, vc: BaseChatViewController) {
+        let payload = [ "type": type, "query": text ]
+        func callback(response: String) {
+            self.addTextMessage(text: response, isIncoming: true)
+            
+        }
+    }
+    
     /*
     func addTextMessage(_ text: String) {
         let uid = "\(self.nextMessageId)"

@@ -27,6 +27,7 @@ enum SpecialRequest {
     case ORGANIC
     case GLUTENFREE
     case VEGETARIAN
+    case NONE
 }
 
 enum Cuisine {
