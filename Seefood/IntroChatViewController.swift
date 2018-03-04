@@ -42,7 +42,7 @@ class IntroChatViewController: BaseChatViewController {
             "MEDIUM": MealSize.MEDIUM,
             "LARGE": MealSize.LARGE
         ]
-        return stringToSize[response] ?? MealSize.MEDIUM
+        return stringToSize[response.uppercased()] ?? MealSize.MEDIUM
     }
     
     func parseCuisineResponse(response: String) -> Cuisine {
@@ -54,7 +54,7 @@ class IntroChatViewController: BaseChatViewController {
             "COMFORT": Cuisine.COMFORT,
             "INDIAN": Cuisine.INDIAN
         ]
-        return stringToCuisine[response] ?? Cuisine.COMFORT
+        return stringToCuisine[response.uppercased()] ?? Cuisine.COMFORT
     }
     
     func parseETCResponse(response: String) -> [SpecialRequest] {
@@ -67,7 +67,7 @@ class IntroChatViewController: BaseChatViewController {
             "VEGETARIAN": SpecialRequest.VEGETARIAN,
             "NONE": SpecialRequest.NONE
         ]
-        return requests.map({ val in return stringToRequest[val] ?? SpecialRequest.NONE })
+        return requests.map({ val in return stringToRequest[val.uppercased()] ?? SpecialRequest.NONE })
     }
     
     func advanceMode(response: String) {

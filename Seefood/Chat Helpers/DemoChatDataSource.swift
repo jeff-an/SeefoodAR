@@ -102,9 +102,13 @@ class DemoChatDataSource: ChatDataSourceProtocol {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                     if let parseJSON = json {
                         let resultValue = (parseJSON["response"] as! [String] ?? nil)!;
-                        callback(resultValue)
                         print("Received response: ")
                         print(parseJSON["response"])
+                        if let arr = resultValue as? [String] {
+                            print(arr[0])
+                            print(arr[1])
+                        }
+                        callback(resultValue)
                     }
                 } catch let error as NSError {
                     print(error)
