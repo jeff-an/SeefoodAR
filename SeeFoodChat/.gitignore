@@ -1,0 +1,30 @@
+########## Python ############
+# Cache files
+**/__pycache__
+**/*.pyc
+**/.cache
+
+# Venv
+**/venv
+
+
+########## Editors ###########
+# Vim files
+**/*.swo
+**/*.swp
+*~
+
+# IDE filter for .idea 
+**/.idea
+
+
+########### Misc #############
+# Macs
+**/.DS_Store
+
+# Keep .gitkeep
+!**/.gitkeep
+
+
+data
+!data/.gitkeep
