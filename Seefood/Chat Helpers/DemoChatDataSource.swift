@@ -85,12 +85,13 @@ class DemoChatDataSource: ChatDataSourceProtocol {
         self.delegate?.chatDataSourceDidUpdate(self)
     }
     
-    func putContent(payload: [String: String], callback: @escaping (String) -> Void) {
+    func putContent(payload: [String: String], callback: @escaping (String?) -> Void) {
         if let jsonData = try? JSONSerialization.data(withJSONObject: payload, options: []) {
             let url = NSURL(string: "http://ffe29f01.ngrok.io/chat")!
             let request = NSMutableURLRequest(url: url as URL)
             request.httpMethod = "POST"
             request.httpBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
                 if error != nil {
@@ -100,7 +101,7 @@ class DemoChatDataSource: ChatDataSourceProtocol {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                     if let parseJSON = json {
-                        let resultValue:String = parseJSON["success"] as! String;
+                        let resultValue = (parseJSON["response"] as! String ?? nil)!;
                         callback(resultValue)
                     }
                 } catch let error as NSError {
@@ -112,12 +113,14 @@ class DemoChatDataSource: ChatDataSourceProtocol {
     }
 
 
-    func respondToText(type: String, text: String, vc: BaseChatViewController) {
+    func respondToText(type: String, text: String, vc: IntroChatViewController) {
         let payload = [ "type": type, "query": text ]
-        func callback(response: String) {
-            self.addTextMessage(text: response, isIncoming: true)
-            
+        func callback(response: String?) {
+            let text = response ?? "error"
+            self.addTextMessage(text: text, isIncoming: true)
+            vc.advanceMode(response: text)
         }
+        putContent(payload: payload, callback: callback)
     }
     
     /*
