@@ -139,7 +139,9 @@ class IntroChatViewController: BaseChatViewController {
         let item = TextChatInputItem()
         item.textInputHandler = { [weak self] text in
             self?.dataSource.addTextMessage(text: text, isIncoming: false)
-            self?.dataSource.respondToText(type: (self?.modes[(self?.currentMode)!])!, text: text, vc: self!)
+            let type = (self?.modes[(self?.currentMode)!])
+            self?.dataSource.respondToText(type: type!, text: text, vc: self!)
+            print("Sending payload with type " + type! + " and text " + text)
             self?.currtxt = text
             /**
             if(DemoChatMessageFactory.messageindex == 0){
