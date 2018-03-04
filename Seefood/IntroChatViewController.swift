@@ -12,7 +12,15 @@ import ChattoAdditions
 
 class IntroChatViewController: BaseChatViewController {
     var currtxt = ""
-
+    var cuisine: Cuisine = Cuisine.COMFORT
+    var size: MealSize = MealSize.MEDIUM
+    var specialRequests: [SpecialRequest] = []
+    var currentMode = 0
+    let modes = [
+        "genre",
+        "portion",
+        "etc"
+    ]
     var messageSender = DemoChatMessageSender()
     let messagesSelector = BaseMessagesSelector()
     var dataSource = DemoChatDataSource(count: 0, pageSize: 500)
@@ -28,6 +36,65 @@ class IntroChatViewController: BaseChatViewController {
         return BaseMessageHandler(messageSender: self.messageSender, messagesSelector: self.messagesSelector)
     }()
     
+    func parsePortionResponse(response: String) -> MealSize {
+        let stringToSize = [
+            "SMALL": MealSize.SMALL,
+            "MEDIUM": MealSize.MEDIUM,
+            "LARGE": MealSize.LARGE
+        ]
+        return stringToSize[response] ?? MealSize.MEDIUM
+    }
+    
+    func parseCuisineResponse(response: String) -> Cuisine {
+        let stringToCuisine = [
+            "JAPANESE": Cuisine.JAPANESE,
+            "KOREAN": Cuisine.KOREAN,
+            "CHINESE": Cuisine.CHINESE,
+            "AMERICAN": Cuisine.AMERICAN,
+            "COMFORT": Cuisine.COMFORT,
+            "INDIAN": Cuisine.INDIAN
+        ]
+        return stringToCuisine[response] ?? Cuisine.COMFORT
+    }
+    
+    func parseETCResponse(response: String) -> [SpecialRequest] {
+        let requests = response.components(separatedBy: ",")
+        let stringToRequest = [
+            "ORGANIC": SpecialRequest.ORGANIC,
+            "SPICY": SpecialRequest.SPICY,
+            "MILD": SpecialRequest.MILD,
+            "GLUTENFREE": SpecialRequest.GLUTENFREE,
+            "VEGETARIAN": SpecialRequest.VEGETARIAN,
+            "NONE": SpecialRequest.NONE
+        ]
+        return requests.map({ val in return stringToRequest[val] ?? SpecialRequest.NONE })
+    }
+    
+    func advanceMode(response: String) {
+        if (currentMode == 2) {
+            // just finished etc
+            specialRequests = parseETCResponse(response: response)
+            prepareResultsView()
+            return
+        } else if (currentMode == 1) {
+            // just finished portion
+            size = parsePortionResponse(response: response)
+        } else if (currentMode == 0) {
+            // just finished genre
+            cuisine = parseCuisineResponse(response: response)
+        } else {
+            // something wrong, just move on
+            prepareResultsView()
+            return
+        }
+        currentMode += 1
+        return
+    }
+    
+    func prepareResultsView() {
+        // TODO: segue behavior here
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chatDataSource = self.dataSource
@@ -35,6 +102,7 @@ class IntroChatViewController: BaseChatViewController {
         self.title = "Chat"
         self.messagesSelector.delegate = self as! MessagesSelectorDelegate
         self.chatItemsDecorator = DemoChatItemsDecorator(messagesSelector: self.messagesSelector)
+        self.dataSource.addTextMessage(text: "What would you like to eat?", isIncoming: true)
     }
     
     var chatInputPresenter: BasicChatInputBarPresenter!
@@ -72,6 +140,8 @@ class IntroChatViewController: BaseChatViewController {
         item.textInputHandler = { [weak self] text in
             self?.dataSource.addTextMessage(text: text, isIncoming: false)
             self?.currtxt = text
+            
+            
             
             //positive
             if(DemoChatMessageFactory.messageindex == 0){
