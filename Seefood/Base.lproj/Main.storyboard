@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AmericanTypewriter.ttc">
+            <string>AmericanTypewriter</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--PopupVC-->
         <scene sceneID="uof-Hf-gng">
@@ -82,41 +87,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
-                                <rect key="frame" x="67" y="383" width="241" height="73"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vBh-N7-jmC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
+                                <rect key="frame" x="67" y="312" width="241" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="XNG-AM-2pz"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="findBtn"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <state key="normal" title="Button" image="buttonBackground.png"/>
                                 <connections>
                                     <action selector="FindDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-xV-ztQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
-                                <rect key="frame" x="63" y="289" width="248" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
+                                <rect key="frame" x="63" y="225" width="248" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="K4U-wG-oe8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="See your food before you eat it. Make better life choices.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.91081255726336408" green="0.92205715673575128" blue="0.92205715673575128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="AmericanTypewriter-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Seefood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
-                                <rect key="frame" x="39" y="227" width="296" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
+                                <rect key="frame" x="39" y="62" width="296" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="f2E-x7-fNS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to">
+                                        <attributes>
+                                            <color key="NSColor" red="0.8724328474116303" green="1" blue="0.86367201848760844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="17" name="AmericanTypewriter-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="-1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V77-tU-WRH">
-                                <rect key="frame" x="67" y="464" width="241" height="73"/>
-                                <state key="normal" title="Button" image="menuBtn"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V77-tU-WRH">
+                                <rect key="frame" x="67" y="393" width="241" height="73"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <state key="normal" title="Button" image="buttonBackground.png"/>
                                 <connections>
                                     <segue destination="cos-JQ-rfK" kind="presentation" modalPresentationStyle="overCurrentContext" id="LDv-4H-eag"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="4mn-bq-9GU">
+                                <rect key="frame" x="67" y="124" width="248" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -138,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="33"/>
+            <point key="canvasLocation" x="586.39999999999998" y="31.934032983508249"/>
         </scene>
         <!--Intro Chat View Controller-->
         <scene sceneID="ge7-xo-Mcv">
@@ -324,8 +357,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="findBtn" width="747" height="222"/>
-        <image name="menuBtn" width="747" height="222"/>
+        <image name="background-1.jpg" width="906" height="1360"/>
+        <image name="buttonBackground.png" width="249" height="74"/>
+        <image name="logo.png" width="441" height="124"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lyd-SM-BAQ"/>
