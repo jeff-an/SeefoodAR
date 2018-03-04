@@ -15,7 +15,11 @@ enum MealSize {
 }
 
 enum SpecialRequests {
-    
+    case SPICY
+    case MILD
+    case ORGANIC
+    case GLUTENFREE
+    case VEGETARIAN
 }
 
 class DataStore {
@@ -23,14 +27,20 @@ class DataStore {
         "0": DishResult(imageId: "0",
                         title: "Salmon Bento Box",
                         restaurant: "Sushi Moto",
-                        price: "12.99",
-                        descripLabel: "Succulent, fresh salmon nigiri served with rice."),
+                        price: 12.99,
+                        descripLabel: "Succulent, fresh salmon nigiri served with rice.",
+                        size: MealSize.SMALL,
+                        requests: nil
+        ),
         
         "1": DishResult(imageId: "1",
                         title: "Tuna Bento Box",
                         restaurant: "Sushi Moto",
-                        price: "12.99",
-                        descripLabel: "Salmon Bento Box, except with Tuna."),
+                        price: 12.99,
+                        descripLabel: "Salmon Bento Box, except with Tuna.",
+                        size: nil,
+                        requests: nil
+        ),
         
     ]
     
@@ -44,18 +54,20 @@ class DataStore {
     }
     
     func getDishesByRestaurant(name: String) -> [DishResult] {
-        if let dishes = dishByRestaurant[name] {
+        if let dishes = dishesByRestaurant[name] {
             return dishes
         }
-        return dishById["Sushi Moto"]!
+        return dishesByRestaurant["Sushi Moto"]!
     }
     
-    func filterDishes()
+    func filterDishes(filters: (DishResult) -> Bool) -> [DishResult] {
+        return [dishById["0"]!]
+    }
     
     init() {
         // Group all dishes by restaurant
         for (_, dish) in dishById {
-            let restaurant = dish["restaurant"]
+            let restaurant = dish["restaurant"] as! String
             if var dishes = dishesByRestaurant[restaurant] {
                 dishes.append(dish)
             } else {

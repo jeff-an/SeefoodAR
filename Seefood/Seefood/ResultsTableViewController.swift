@@ -13,12 +13,13 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     var selectedRow = 0
 
     // Flag to determine whether the search is for all restaurants or for a specific one
-    var isRestaurantSearch = false
-    var isGeneralDishSearch = false
+    static var isRestaurantSearch = false
+    static var isGeneralDishSearch = false
     
-    var restaurantName = ""
-    var results: [DishResult] = []
-    let dataStore = DataStore()
+    static var restaurantName = ""
+    static var results: [DishResult] = []
+    
+    static let dataStore = DataStore()
     let dishData = [
         [
             "imageId": "0",
@@ -72,7 +73,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        assert(isRestaurantSearch || isGeneralDishSearch, "Attempting to render search results without setting a search mode")
+        assert(ResultsTableViewController.isRestaurantSearch || ResultsTableViewController.isGeneralDishSearch, "Attempting to render search results without setting a search mode")
         let titleCell: TitleCell = tableView.dequeueReusableCell(withIdentifier: "titlecell") as! TitleCell
         if(indexPath.row == 0){
             titleCell.isUserInteractionEnabled = false
@@ -83,11 +84,11 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         let dish = dishData[indexPath.row]
         if indexPath.row > 0 {
            //put in custom titles and descrips
-            cell.foodImage.image = UIImage(named: dish["imageId"]!)
-            cell.title.text = dish["title"]!
-            cell.price.text = dish["price"]!
-            cell.restaurant.text = dish["restaurant"]!
-            cell.descripLabel.text = dish["descripLabel"]!
+            cell.foodImage.image = UIImage(named: dish["imageId"]! as! String)
+            cell.title.text = dish["title"]! as! String
+            cell.price.text = String(dish["price"]! as! Float)
+            cell.restaurant.text = dish["restaurant"]! as! String
+            cell.descripLabel.text = dish["descripLabel"]! as! String
         }
         cell.alpha = 0
         UIView.animate(withDuration: 0.75, animations: { cell.alpha = 1 })
@@ -98,10 +99,10 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    func receiveRestaurantName(name: String) {
+    static func receiveRestaurantName(name: String) {
         // Set the restaurant name
-        self.isRestaurantSearch = true
-        self.restaurantName = name
+        ResultsTableViewController.isRestaurantSearch = true
+        ResultsTableViewController.restaurantName = name
         
         // Filter results
         results = dataStore.getDishesByRestaurant(name: name)
