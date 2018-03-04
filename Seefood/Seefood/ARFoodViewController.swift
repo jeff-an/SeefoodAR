@@ -1,10 +1,9 @@
 //
 //  ARFoodViewController.swift
-//  Seefood
+//  ARSceneKit
 //
-//  Created by Sara Du on 3/3/18.
-//  Copyright © 2018 Duvelop. All rights reserved.
-//
+//  Created by Alexander Cui on 3/2/18.
+//  Copyright © 2018 Hacktech 2018. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +15,8 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     
     var nodeModel:SCNNode!
-    let nodeName = "flashlight"
+    var currentNode:SCNNode!
+    let nodeName = "ar_food"
     var numModels:Int = 0
     
     override func viewDidLoad() {
@@ -38,9 +38,51 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         
         // Create a scene with a model
-        let modelScene = SCNScene(named:"art.scnassets/flashlight.dae")!
+        let modelScene = SCNScene(named:"art.scnassets/unagi_nigiri.dae")!
         
         nodeModel = modelScene.rootNode.childNode(withName: nodeName, recursively: true)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+        sceneView.addGestureRecognizer(tapGesture)
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeLeftGesture.direction = .left
+        sceneView.addGestureRecognizer(swipeLeftGesture)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        sceneView.addGestureRecognizer(panGesture)
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        sceneView.addGestureRecognizer(pinchGesture)
+    }
+    
+    @objc func handlePinch(_ gestureRecognize: UIPinchGestureRecognizer) {
+        let scale = Float(gestureRecognize.scale)
+        if let node = currentNode {
+            node.scale = SCNVector3(node.scale.x * scale, node.scale.y * scale, node.scale.z * scale)
+        }
+        gestureRecognize.scale = 1
+    }
+    
+    @objc func handleSwipe(_ gestureRecognize: UISwipeGestureRecognizer) {
+        if (gestureRecognize.direction == .left) {
+            print("left swipe")
+        }
+        else if (gestureRecognize.direction == .right) {
+            print("right swipe")
+        }
+    }
+    
+    @objc func tapGesture () {
+        print("got tapped")
+    }
+    
+    @objc func handlePan(_ gestureRecognize:UIPanGestureRecognizer) {
+        let translation = gestureRecognize.translation(in: self.view)
+        let coeff = Float(0.04)
+        if let node = currentNode {
+            
+            print(translation.x, node.eulerAngles.x, node.eulerAngles.y, node.eulerAngles.z)
+            node.eulerAngles = SCNVector3Make(node.eulerAngles.x, node.eulerAngles.y + Float(translation.x) * coeff, node.eulerAngles.z)
+        }
+        gestureRecognize.setTranslation(CGPoint.zero, in: self.view)
     }
     
     // Run when screen is touched
@@ -53,6 +95,11 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
         let hitResults: [SCNHitTestResult]  =
             sceneView.hitTest(location, options: hitTestOptions)
         
+        // Prevent more than one model being spawned at a time, and from being removed
+        if numModels >= 1 {
+            return
+        }
+        
         // If touched a model, remove it
         if let hit = hitResults.first {
             if let node = getParent(hit.node) {
@@ -61,11 +108,6 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
                 print("Removed model")
                 return
             }
-        }
-        
-        // Prevent more than one model being spawned at a time
-        if numModels >= 1 {
-            return
         }
         
         // Otherwise, add the model to the world, facing you
@@ -104,7 +146,7 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
             DispatchQueue.main.async {
                 let modelClone = self.nodeModel.clone()
                 modelClone.position = SCNVector3Zero
-                
+                self.currentNode = modelClone
                 // Add model as a child of the node
                 node.addChildNode(modelClone)
             }
@@ -150,4 +192,3 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
         
     }
 }
-
