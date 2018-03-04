@@ -1,5 +1,5 @@
 //
-//  ARFoodViewController.swift
+//  ViewController.swift
 //  ARSceneKit
 //
 //  Created by Alexander Cui on 3/2/18.
@@ -16,7 +16,7 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
     
     var nodeModel:SCNNode!
     var currentNode:SCNNode!
-    let nodeName = "ar_food"
+    let nodeName = "apple"
     var numModels:Int = 0
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         
         // Create a scene with a model
-        let modelScene = SCNScene(named:"art.scnassets/unagi_nigiri.dae")!
+        let modelScene = SCNScene(named:"art.scnassets/SeefoodObjects/" + nodeName + ".dae")!
         
         nodeModel = modelScene.rootNode.childNode(withName: nodeName, recursively: true)
         
@@ -78,8 +78,6 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
         let translation = gestureRecognize.translation(in: self.view)
         let coeff = Float(0.04)
         if let node = currentNode {
-            
-            print(translation.x, node.eulerAngles.x, node.eulerAngles.y, node.eulerAngles.z)
             node.eulerAngles = SCNVector3Make(node.eulerAngles.x, node.eulerAngles.y + Float(translation.x) * coeff, node.eulerAngles.z)
         }
         gestureRecognize.setTranslation(CGPoint.zero, in: self.view)
@@ -144,11 +142,16 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if !anchor.isKind(of: ARPlaneAnchor.self) {
             DispatchQueue.main.async {
-                let modelClone = self.nodeModel.clone()
-                modelClone.position = SCNVector3Zero
-                self.currentNode = modelClone
-                // Add model as a child of the node
-                node.addChildNode(modelClone)
+                if let model = self.nodeModel {
+                    print("self.nodeModel exists")
+                    let modelClone = model.clone()
+                    modelClone.position = SCNVector3Zero
+                    self.currentNode = modelClone
+                    // Add model as a child of the node
+                    node.addChildNode(modelClone)
+                } else {
+                    print("self.nodeModel does not exist")
+                }
             }
         }
     }
@@ -189,6 +192,6 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
     
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
     }
 }
+

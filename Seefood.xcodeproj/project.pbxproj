@@ -15,6 +15,8 @@
 		1F5965CF204B4C4A00EC615F /* DishResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965CE204B4C4A00EC615F /* DishResult.swift */; };
 		1F5965D1204B51A000EC615F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965D0204B51A000EC615F /* DataStore.swift */; };
 		1F5965D5204B620C00EC615F /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5965D4204B620C00EC615F /* PopupVC.swift */; };
+		4E0148F4204C128D0025B918 /* ARFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0148F3204C128D0025B918 /* ARFoodViewController.swift */; };
+		4E0148FD204C21AA0025B918 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0148FC204C21AA0025B918 /* art.scnassets */; };
 		565E51F7204AF4E500156B6B /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */; };
 		565E51F9204AF84B00156B6B /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */; };
 		565E51FB204AF85700156B6B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */; };
@@ -52,6 +54,8 @@
 		1F5965CE204B4C4A00EC615F /* DishResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishResult.swift; sourceTree = "<group>"; };
 		1F5965D0204B51A000EC615F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		1F5965D4204B620C00EC615F /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
+		4E0148F3204C128D0025B918 /* ARFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARFoodViewController.swift; sourceTree = "<group>"; };
+		4E0148FC204C21AA0025B918 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		565E51F6204AF4E500156B6B /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		565E51F8204AF84B00156B6B /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		565E51FA204AF85700156B6B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		56FDA532204A834900E15BD1 /* Seefood */ = {
 			isa = PBXGroup;
 			children = (
+				4E0148FC204C21AA0025B918 /* art.scnassets */,
 				1F34FE88204BD26E00925422 /* buttonBackground.png */,
 				1F34FE86204BCF9200925422 /* logo.png */,
 				1F34FE80204BCCAD00925422 /* background-1.jpg */,
@@ -150,6 +155,7 @@
 				56FDA55E204AE7FB00E15BD1 /* Chat Items */,
 				56FDA533204A834900E15BD1 /* AppDelegate.swift */,
 				56FDA537204A834900E15BD1 /* Main.storyboard */,
+				4E0148F3204C128D0025B918 /* ARFoodViewController.swift */,
 				1F5965CE204B4C4A00EC615F /* DishResult.swift */,
 				56FDA53A204A834900E15BD1 /* Assets.xcassets */,
 				56FDA53C204A834900E15BD1 /* LaunchScreen.storyboard */,
@@ -273,6 +279,7 @@
 				1F34FE87204BCF9200925422 /* logo.png in Resources */,
 				1F34FE7F204BC96100925422 /* background.jpg in Resources */,
 				56FDA539204A834900E15BD1 /* Main.storyboard in Resources */,
+				4E0148FD204C21AA0025B918 /* art.scnassets in Resources */,
 				1F34FE89204BD26F00925422 /* buttonBackground.png in Resources */,
 				565E51FF204AFAE200156B6B /* TitleCell.xib in Resources */,
 			);
@@ -287,9 +294,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Seefood/Pods-Seefood-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Chatto/Chatto.framework",
+				"${BUILT_PRODUCTS_DIR}/ChattoAdditions/ChattoAdditions.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chatto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChattoAdditions.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -302,13 +314,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Seefood-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F83CBED6A7AACBB1608E1B02 /* [CP] Copy Pods Resources */ = {
@@ -339,6 +354,7 @@
 				565E51F7204AF4E500156B6B /* ResultsTableViewController.swift in Sources */,
 				565E51FB204AF85700156B6B /* ResultsTableViewCell.swift in Sources */,
 				56FDA592204AEFA200E15BD1 /* DemoChatItemsDecorator.swift in Sources */,
+				4E0148F4204C128D0025B918 /* ARFoodViewController.swift in Sources */,
 				56FDA546204A8A2200E15BD1 /* IntroChatViewController.swift in Sources */,
 				56FDA57F204AE92400E15BD1 /* DemoTextMessageHandler.swift in Sources */,
 				56FDA585204AE95F00E15BD1 /* MessagesSelectorProtocol.swift in Sources */,
