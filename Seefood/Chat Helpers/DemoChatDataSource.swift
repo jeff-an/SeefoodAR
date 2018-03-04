@@ -85,7 +85,7 @@ class DemoChatDataSource: ChatDataSourceProtocol {
         self.delegate?.chatDataSourceDidUpdate(self)
     }
     
-    func putContent(payload: [String: String], callback: @escaping (String?) -> Void) {
+    func putContent(payload: [String: String], callback: @escaping ([String]?) -> Void) {
         if let jsonData = try? JSONSerialization.data(withJSONObject: payload, options: []) {
             let url = NSURL(string: "http://ffe29f01.ngrok.io/chat")!
             let request = NSMutableURLRequest(url: url as URL)
@@ -101,10 +101,10 @@ class DemoChatDataSource: ChatDataSourceProtocol {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                     if let parseJSON = json {
+                        let resultValue = (parseJSON["response"] as! [String] ?? nil)!;
+                        callback(resultValue)
+                        print("Received response: ")
                         print(parseJSON["response"])
-                        //let resp = parseJSON["response"]
-                        //let resArray = resp as! NSArray
-                        //callback(resArray[1] as! String)
                     }
                 } catch let error as NSError {
                     print(error)
@@ -117,10 +117,15 @@ class DemoChatDataSource: ChatDataSourceProtocol {
 
     func respondToText(type: String, text: String, vc: IntroChatViewController) {
         let payload = [ "type": type, "query": text ]
-        func callback(response: String?) {
-            let text = response ?? "error"
-            self.addTextMessage(text: text, isIncoming: true)
-            vc.advanceMode(response: text)
+        func callback(response: [String]?) {
+            if response == nil {
+                self.addTextMessage(text: "Great, let's find you a meal!", isIncoming: true)
+                vc.advanceMode(response: "error")
+            } else {
+                let text = response![0]
+                self.addTextMessage(text: response![1], isIncoming: true)
+                vc.advanceMode(response: text)
+            }
         }
         putContent(payload: payload, callback: callback)
     }

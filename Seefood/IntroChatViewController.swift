@@ -71,19 +71,27 @@ class IntroChatViewController: BaseChatViewController {
     }
     
     func advanceMode(response: String) {
-        if (currentMode == 2) {
+        if (response == "error") {
+            self.dataSource.addTextMessage(text: "All set, let's find you a meal!", isIncoming: true)
+            prepareResultsView()
+            return
+        } else if (currentMode == 2) {
             // just finished etc
             specialRequests = parseETCResponse(response: response)
+            self.dataSource.addTextMessage(text: "All set, let's find you a meal!", isIncoming: true)
             prepareResultsView()
             return
         } else if (currentMode == 1) {
             // just finished portion
             size = parsePortionResponse(response: response)
+            self.dataSource.addTextMessage(text: "Any special requests for your meal? (Vegetarian, organic, gluten-free...)", isIncoming: true)
         } else if (currentMode == 0) {
             // just finished genre
             cuisine = parseCuisineResponse(response: response)
+            self.dataSource.addTextMessage(text: "Now, how large a meal would you like?", isIncoming: true)
         } else {
-            // something wrong, just move on
+            // somethinasrong, just move on
+            self.dataSource.addTextMessage(text: "All set, let's find you a meal!", isIncoming: true)
             prepareResultsView()
             return
         }
@@ -91,8 +99,16 @@ class IntroChatViewController: BaseChatViewController {
         return
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "renderResultsFromChat") {
+            ResultsTableViewController.receiveChatResults(cuisine: cuisine, size: size, requests: specialRequests)
+        }
+    }
+    
     func prepareResultsView() {
-        // TODO: segue behavior here
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "renderResultsFromChat", sender: self)
+        }
     }
     
     override func viewDidLoad() {
