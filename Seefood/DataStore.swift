@@ -48,6 +48,8 @@ let organicVegetarianMild = [SpecialRequest.NONE, SpecialRequest.ORGANIC, Specia
 let organicVegetarianSpicy = [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.SPICY, SpecialRequest.VEGETARIAN]
 
 class DataStore {
+    var currentItem = 0
+
     let dishesByID: [String: DishResult] = [
         "0": DishResult(imageId: "0",
                         title: "Salmon Bento Box",

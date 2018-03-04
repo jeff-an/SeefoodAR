@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -367,7 +367,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="YUj-SR-37W"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Name of Sushi"/>
                                 <connections>
                                     <action selector="collapseClicked:" destination="56T-b1-Wzu" eventType="touchUpInside" id="AdF-Qu-Tjs"/>
                                 </connections>
@@ -390,6 +390,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="descripLabel" destination="6tp-IL-Ruw" id="O45-Ea-NBS"/>
                         <outlet property="toggleButton" destination="T5B-a9-rC7" id="HkB-v1-QqY"/>
                     </connections>
                 </viewController>
