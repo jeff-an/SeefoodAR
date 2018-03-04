@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,43 +84,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-4T-yfT">
                                 <rect key="frame" x="67" y="383" width="241" height="73"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="xh6-dt-onu"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="findBtn"/>
                                 <connections>
                                     <action selector="FindDishAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-xV-ztQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="See your food before you eat it. Make better life choices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-cE-dH2">
                                 <rect key="frame" x="63" y="289" width="248" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="nWE-rk-cCV"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Seefood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Seefood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSF-EK-KcO">
                                 <rect key="frame" x="39" y="227" width="296" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="BYK-MI-Ekf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V77-tU-WRH">
-                                <rect key="frame" x="67" y="464" width="241" height="73"/>
-                                <state key="normal" title="Button" image="menuBtn"/>
-                                <connections>
-                                    <segue destination="cos-JQ-rfK" kind="presentation" id="LDv-4H-eag"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S4u-4T-yfT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="0go-KE-EZN"/>
                             <constraint firstItem="S4u-4T-yfT" firstAttribute="top" secondItem="n1O-cE-dH2" secondAttribute="bottom" constant="38" id="7yB-4b-RgS"/>
@@ -317,6 +297,8 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="descripLabel" destination="6tp-IL-Ruw" id="XgM-8p-9xO"/>
+                        <outlet property="titleLabel" destination="T5B-a9-rC7" id="Lxx-L2-To6"/>
                         <outlet property="toggleButton" destination="T5B-a9-rC7" id="HkB-v1-QqY"/>
                     </connections>
                 </viewController>
@@ -330,6 +312,6 @@
         <image name="menuBtn" width="747" height="222"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lyd-SM-BAQ"/>
+        <segue reference="Fdb-ws-3TS"/>
     </inferredMetricsTieBreakers>
 </document>

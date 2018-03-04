@@ -9,8 +9,11 @@
 import UIKit
 
 class DataViewController: UIViewController {
-    
+    @IBOutlet weak var titleLabel: UIButton!
+    @IBOutlet weak var descripLabel: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
+    var title = ""
+    var descrip = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
