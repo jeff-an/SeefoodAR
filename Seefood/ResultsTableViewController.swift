@@ -43,6 +43,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRow = indexPath.row
+        ResultsTableViewController.dataStore.currentItem = indexPath.row
         self.performSegue(withIdentifier: "next", sender: self)
     }
     

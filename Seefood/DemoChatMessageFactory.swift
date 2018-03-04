@@ -51,7 +51,7 @@ class DemoChatMessageFactory {
     
     
     static let demoTexts = [
-        "Hi! It's a beautiful day today ☀️ How are you feeling? (Positive or Negative)", //0
+        "Hi! It's a beautiful day today ☀️", //0
         //Default Something Else
         "Sounds like you like fish! 😀",//1
         //Positive
