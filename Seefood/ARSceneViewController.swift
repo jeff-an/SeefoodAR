@@ -34,7 +34,8 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(nodeName)
-        
+        print(foodTitle)
+        print(foodDescrip)
         if let dataVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DataVC") as? DataViewController{
             self.dataVC = dataVC
             
@@ -43,11 +44,14 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate{
             dataVC.view.frame.origin.y = self.view.frame.height - self.dataYOffset
             self.addChildViewController(dataVC)
             self.view.addSubview(dataVC.view)
+            dataVC.toggleButton.setTitle(self.foodTitle, for: .normal)
+            dataVC.descripLabel.text = self.foodDescrip
+            dataVC.foodTitle = self.foodTitle
+            dataVC.foodDescrip = self.foodDescrip
             dataVC.didMove(toParentViewController: self)
             self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(ARSceneViewController.handlePanGesture(_:)))
             dataVC.view.addGestureRecognizer(self.panGesture)
-            dataVC.foodTitle = self.foodTitle
-            dataVC.foodDescrip = self.foodDescrip
+            
             
             NotificationCenter.default.addObserver(forName: toggleDataShowHideNotification, object: nil, queue: nil, using: { (notification) in
                 self.toggleState()
