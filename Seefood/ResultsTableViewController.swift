@@ -72,7 +72,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let currItem = ResultsTableViewController.dataStore.getDishById(id: "\(currCount)")
+        let currItem = ResultsTableViewController.dataStore.getDishById(id: "\(ResultsTableViewController.results[currCount]["imageId"])")
         let vc = segue.destination as! ARSceneViewController
         vc.nodeName = currItem["imageId"] as! String
         vc.foodTitle = currItem["title"] as! String
