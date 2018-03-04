@@ -63,10 +63,10 @@ class ARFoodViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         
+        // Prevent more than one model being spawned at a time
         if numModels >= 1 {
             return
         }
-        
         
         // Otherwise, add the model to the world, facing you
         let hitResultsFeaturePoints: [ARHitTestResult] =
