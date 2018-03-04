@@ -18,13 +18,15 @@ def handle_genres(query):
   genres = {}
   for n in ["chinese", "korean", "american", "sushi", "mexican"]:
     genres[n] = cosine_similarity([np.mean([embed(x) for x in query.split(" ")], axis=0)], [embed(n)])[0][0]
-  return sorted(genres.items(), key=lambda x: x[1])[0][0]
+  print(sorted(genres.items(), key=lambda x: x[1]))
+  return sorted(genres.items(), key=lambda x: x[1])[-1][0]
 
 def handle_portion(query):
   genres = {}
   for n in ["large", "small", "medium"]:
     genres[n] = cosine_similarity([np.mean([embed(x) for x in query.split(" ")], axis=0)], [embed(n)])[0][0]
-  return sorted(genres.items(), key=lambda x: x[1])[0][0]
+  print(sorted(genres.items(), key=lambda x: x[1]))
+  return sorted(genres.items(), key=lambda x: x[1])[-1][0]
   
 def handle_general(query):
   return "Sure"
