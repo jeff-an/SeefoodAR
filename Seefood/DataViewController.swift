@@ -11,7 +11,9 @@ import UIKit
 class DataViewController: UIViewController {
     
     @IBOutlet weak var toggleButton: UIButton!
-    
+    @IBOutlet weak var descripLabel: UILabel!
+    static let dataStore = DataStore()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,10 @@ class DataViewController: UIViewController {
         
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurEffectView, at: 0)
+        
+        let currDish = DataViewController.dataStore.getDishById(id: "\(DataViewController.dataStore.currentItem)")
+        toggleButton.setTitle(currDish["title"] as! String, for: .normal)
+        descripLabel.text = currDish["descripLabel"] as! String
         
         NotificationCenter.default.addObserver(forName: toggleDataActionUpdatesNotification, object: nil, queue: nil) { (notification) in
             if let visible = notification.object as? Bool{

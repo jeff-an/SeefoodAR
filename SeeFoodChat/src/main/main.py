@@ -34,11 +34,6 @@ for key, samples in portions.items():
   for sample in samples:
     vecs += [embed(x) for x in sample.split(" ")]
   portions[key] = np.mean(vecs, axis=0)
-for key, samples in misc.items():
-  vecs = []
-  for sample in samples:
-    vecs += [embed(x) for x in sample.split(" ")]
-  misc[key] = np.mean(vecs, axis=0)
 
 
 def handle(query, type):
@@ -46,11 +41,19 @@ def handle(query, type):
   query = str(query).lower().strip()
   query_vec = np.mean([embed(x) for x in query.split(" ")], axis=0)
   if type == "genre":
-    return handle_genres(query_vec)
+    res = handle_genres(query_vec)
+    return res, "Got it, you want %s food" % res
   elif type == "portion":
-    return handle_portion(query_vec)
+    res = handle_portion(query_vec)
+    return res, "Got it, you want a %s amount of food" % res
   else:
-    return handle_general(query_vec)
+    res = handle_general(query)
+    if "no" in res:
+      return res, "Alright."
+    elif len(res) is 0:
+      return res, "I don't understand"
+    else:
+      return res, "Alright, you want something: " + ", ".join(res)
 
 
 def handle_genres(query_vec):
@@ -69,10 +72,12 @@ def handle_portion(query_vec):
   return sorted(results.items(), key=lambda x: x[1])[-1][0]
 
 
-def handle_general(query_vec):
-  results = {}
-  for key, vec in misc.items():
-    results[key] = cosine_similarity([query_vec], [vec])[0][0]
-  print(sorted(results.items(), key=lambda x: x[1]))
-  return sorted(results.items(), key=lambda x: x[1])[-1][0]
+def handle_general(query):
+  results = []
+  for key, samples in misc.items():
+    for opt in samples:
+      if opt in query:
+        results.append(key)
+        break
+  return results
 
