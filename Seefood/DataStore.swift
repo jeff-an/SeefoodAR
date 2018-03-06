@@ -5,7 +5,6 @@
 //  Created by Jeff on 2018-03-03.
 //  Copyright © 2018 Duvelop. All rights reserved.
 //
-
 //
 //  DataStore.swift
 //  Seefood
@@ -73,23 +72,23 @@ class DataStore {
         ),
         
         "salmonNigiri": DishResult(imageId: "salmonNigiri",
-                title: "Salmon Nigiri",
-                restaurant: "Maki Yaki",
-                price: 8.00,
-                descripLabel: "",
-                size: nil,
-                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
-                cuisine: Cuisine.JAPANESE
+                                   title: "Salmon Nigiri",
+                                   restaurant: "Maki Yaki",
+                                   price: 8.00,
+                                   descripLabel: "",
+                                   size: nil,
+                                   requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                                   cuisine: Cuisine.JAPANESE
         ),
         
         "tunaNigiri": DishResult(imageId: "tunaNigiri",
-                title: "Tuna Nigiri",
-                restaurant: "Maki Yaki",
-                price: 8.00,
-                descripLabel: "Fresh slices of raw tuna caught off the West Coast",
-                size: MealSize.SMALL,
-                requests: organicGlutenMild,
-                cuisine: Cuisine.JAPANESE),
+                                 title: "Tuna Nigiri",
+                                 restaurant: "Maki Yaki",
+                                 price: 8.00,
+                                 descripLabel: "Fresh slices of raw tuna caught off the West Coast",
+                                 size: MealSize.SMALL,
+                                 requests: organicGlutenMild,
+                                 cuisine: Cuisine.JAPANESE),
         
         "californiaRoll": DishResult(imageId: "californiaRoll",
                                      title: "California Roll",
@@ -108,8 +107,7 @@ class DataStore {
                                 size: MealSize.MEDIUM,
                                 requests: [SpecialRequest.NONE, SpecialRequest.MILD],
                                 cuisine: Cuisine.JAPANESE
-                            ),
-        
+                            ),        
         "unagiNigiri": DishResult(imageId: "unagiNigiri",
                                   title: "Unagi Nigiri",
                                   restaurant: "Sushi Moto",
@@ -171,8 +169,7 @@ class DataStore {
                             descripLabel: "Cookie with large chocolate chunks.",
                             size: MealSize.SMALL,
                             requests: [SpecialRequest.NONE],
-                            cuisine: Cuisine.AMERICAN),
-        
+                            cuisine: Cuisine.AMERICAN),        
         "padthai": DishResult(imageId: "padthai",
                               title: "Pad Thai",
                               restaurant: "Rice Thai Tapas",
@@ -238,7 +235,6 @@ class DataStore {
                               requests: [SpecialRequest.MILD, SpecialRequest.SPICY, SpecialRequest.NONE],
                               cuisine: Cuisine.KOREAN
         ),
-
         "gamjatang": DishResult(imageId: "gamjatang",
                               title: "Gamjatang",
                               restaurant: "Soh Grill House",
