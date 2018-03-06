@@ -48,27 +48,27 @@ let organicVegetarianSpicy = [SpecialRequest.NONE, SpecialRequest.ORGANIC, Speci
 
 class DataStore {
     var currentItem = 0
-    
+
     // make-shift sql database
     let dishesByID: [String: DishResult] = [
         "salmonBento": DishResult(imageId: "salmonBento",
-                                  title: "Salmon Bento Box",
-                                  restaurant: "Sushi Moto",
-                                  price: 15.99,
-                                  descripLabel: "Succulent, fresh salmon nigiri served with rice.",
-                                  size: MealSize.LARGE,
-                                  requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
-                                  cuisine: Cuisine.JAPANESE
+                        title: "Salmon Bento Box",
+                        restaurant: "Sushi Moto",
+                        price: 15.99,
+                        descripLabel: "Succulent, fresh salmon nigiri served with rice.",
+                        size: MealSize.LARGE,
+                        requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                        cuisine: Cuisine.JAPANESE
         ),
         
         "tunaBento": DishResult(imageId: "tunaBento",
-                                title: "Tuna Bento Box",
-                                restaurant: "Sushi Moto",
-                                price: 12.99,
-                                descripLabel: "Salmon Bento Box, except with Tuna.",
-                                size: MealSize.LARGE,
-                                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
-                                cuisine: Cuisine.JAPANESE
+                        title: "Tuna Bento Box",
+                        restaurant: "Sushi Moto",
+                        price: 12.99,
+                        descripLabel: "Salmon Bento Box, except with Tuna.",
+                        size: MealSize.LARGE,
+                        requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                        cuisine: Cuisine.JAPANESE
         ),
         
         "salmonNigiri": DishResult(imageId: "salmonNigiri",
@@ -100,15 +100,14 @@ class DataStore {
                                      cuisine: Cuisine.JAPANESE),
         
         "goldenRoll": DishResult(imageId: "goldenRoll",
-                                 title: "Golden Roll",
-                                 restaurant: "Maki Yaki",
-                                 price: 7.99,
-                                 descripLabel: "Salmon with carrot avocado and tempura.",
-                                 size: MealSize.MEDIUM,
-                                 requests: [SpecialRequest.NONE, SpecialRequest.MILD],
-                                 cuisine: Cuisine.JAPANESE
-        ),
-        
+                                title: "Golden Roll",
+                                restaurant: "Maki Yaki",
+                                price: 7.99,
+                                descripLabel: "Salmon with carrot avocado and tempura.",
+                                size: MealSize.MEDIUM,
+                                requests: [SpecialRequest.NONE, SpecialRequest.MILD],
+                                cuisine: Cuisine.JAPANESE
+                            ),        
         "unagiNigiri": DishResult(imageId: "unagiNigiri",
                                   title: "Unagi Nigiri",
                                   restaurant: "Sushi Moto",
@@ -164,14 +163,13 @@ class DataStore {
                                    cuisine: Cuisine.AMERICAN),
         
         "cookie": DishResult(imageId: "cookie",
-                             title: "Chocolate Chip Cookie",
-                             restaurant: "Caltech Chandler Cafe",
-                             price: 1.99,
-                             descripLabel: "Cookie with large chocolate chunks.",
-                             size: MealSize.SMALL,
-                             requests: [SpecialRequest.NONE],
-                             cuisine: Cuisine.AMERICAN),
-        
+                            title: "Chocolate Chip Cookie",
+                            restaurant: "Caltech Chandler Cafe",
+                            price: 1.99,
+                            descripLabel: "Cookie with large chocolate chunks.",
+                            size: MealSize.SMALL,
+                            requests: [SpecialRequest.NONE],
+                            cuisine: Cuisine.AMERICAN),        
         "padthai": DishResult(imageId: "padthai",
                               title: "Pad Thai",
                               restaurant: "Rice Thai Tapas",
@@ -210,13 +208,13 @@ class DataStore {
                                    cuisine: Cuisine.AMERICAN),
         
         "quinoaBowl": DishResult(imageId: "quinoaBowl",
-                                 title: "Seasonal Quinoa Bowl",
-                                 restaurant: "Paul Martin's",
-                                 price: 18.00,
-                                 descripLabel: "Savoy spinach, blistered tomatoes, fresh vegetables, grilled avocado, served warm",
-                                 size: MealSize.MEDIUM,
-                                 requests: [SpecialRequest.NONE,SpecialRequest.GLUTENFREE, SpecialRequest.VEGETARIAN, SpecialRequest.MILD],
-                                 cuisine: Cuisine.AMERICAN),
+                                   title: "Seasonal Quinoa Bowl",
+                                   restaurant: "Paul Martin's",
+                                   price: 18.00,
+                                   descripLabel: "Savoy spinach, blistered tomatoes, fresh vegetables, grilled avocado, served warm",
+                                   size: MealSize.MEDIUM,
+                                   requests: [SpecialRequest.NONE,SpecialRequest.GLUTENFREE, SpecialRequest.VEGETARIAN, SpecialRequest.MILD],
+                                   cuisine: Cuisine.AMERICAN),
         
         "bibimbap": DishResult(imageId: "bibimbap",
                                title: "Dolsat BiBimBap",
@@ -237,15 +235,14 @@ class DataStore {
                               requests: [SpecialRequest.MILD, SpecialRequest.SPICY, SpecialRequest.NONE],
                               cuisine: Cuisine.KOREAN
         ),
-        
         "gamjatang": DishResult(imageId: "gamjatang",
-                                title: "Gamjatang",
-                                restaurant: "Soh Grill House",
-                                price: 12.99,
-                                descripLabel: "Spicy Korean soup made from the spine and neck bones of a pig",
-                                size: MealSize.LARGE,
-                                requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.NONE, SpecialRequest.SPICY],
-                                cuisine: Cuisine.KOREAN
+                              title: "Gamjatang",
+                              restaurant: "Soh Grill House",
+                              price: 12.99,
+                              descripLabel: "Spicy Korean soup made from the spine and neck bones of a pig",
+                              size: MealSize.LARGE,
+                              requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.NONE, SpecialRequest.SPICY],
+                              cuisine: Cuisine.KOREAN
         ),
         ]
     
