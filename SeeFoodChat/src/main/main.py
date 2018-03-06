@@ -49,11 +49,11 @@ def handle(query, type):
   else:
     res = handle_general(query)
     if "no" in res:
-      return res, "Alright."
+      return ",".join(res), "Alright."
     elif len(res) is 0:
-      return res, "I don't understand"
+      return ",".join(res), "I don't understand"
     else:
-      return res, "Alright, you want something: " + ", ".join(res)
+      return ",".join(res), "Alright, you want something: " + ", ".join(res)
 
 
 def handle_genres(query_vec):
