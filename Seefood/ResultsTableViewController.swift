@@ -43,7 +43,6 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRow = indexPath.row
-        ResultsTableViewController.dataStore.currentItem = indexPath.row
         self.performSegue(withIdentifier: "next", sender: self)
     }
     
@@ -73,7 +72,11 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let currItem = ResultsTableViewController.dataStore.getDishById(id: "\(ResultsTableViewController.results[currCount]["imageId"])")
+        let vc = segue.destination as! ARSceneViewController
+        vc.nodeName = currItem["imageId"] as! String
+        vc.foodTitle = currItem["title"] as! String
+        vc.foodDescrip = currItem["descripLabel"] as! String
     }
     
     static func receiveRestaurantName(name: String) {
