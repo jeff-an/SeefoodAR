@@ -260,7 +260,7 @@ class DataStore {
     }
     
     func getDishesByRestaurant(name: String) -> [DishResult] {
-        if let dishes = dishesByRestaurant[name] {
+        if let dishes = dishesByRestaurant[name.lowercased()] {
             return dishes
         }
         return []
@@ -290,10 +290,10 @@ class DataStore {
         // Group all dishes by restaurant
         for (_, dish) in dishesByID {
             let restaurant = dish["restaurant"] as! String
-            if var dishes = dishesByRestaurant[restaurant] {
-                dishes.append(dish)
+            if dishesByRestaurant[restaurant.lowercased()] != nil {
+                dishesByRestaurant[restaurant.lowercased()]!.append(dish)
             } else {
-                dishesByRestaurant[restaurant] = [dish]
+                dishesByRestaurant[restaurant.lowercased()] = [dish]
             }
         }
     }
