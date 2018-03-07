@@ -42,7 +42,7 @@ class IntroChatViewController: BaseChatViewController {
             "MEDIUM": MealSize.MEDIUM,
             "LARGE": MealSize.LARGE
         ]
-        return stringToSize[response] ?? MealSize.MEDIUM
+        return stringToSize[response.uppercased()] ?? MealSize.MEDIUM
     }
     
     func parseCuisineResponse(response: String) -> Cuisine {
@@ -54,7 +54,7 @@ class IntroChatViewController: BaseChatViewController {
             "COMFORT": Cuisine.COMFORT,
             "INDIAN": Cuisine.INDIAN
         ]
-        return stringToCuisine[response] ?? Cuisine.COMFORT
+        return stringToCuisine[response.uppercased()] ?? Cuisine.COMFORT
     }
     
     func parseETCResponse(response: String) -> [SpecialRequest] {
@@ -67,7 +67,7 @@ class IntroChatViewController: BaseChatViewController {
             "VEGETARIAN": SpecialRequest.VEGETARIAN,
             "NONE": SpecialRequest.NONE
         ]
-        return requests.map({ val in return stringToRequest[val] ?? SpecialRequest.NONE })
+        return requests.map({ val in return stringToRequest[val.uppercased()] ?? SpecialRequest.NONE })
     }
     
     func advanceMode(response: String) {
@@ -114,10 +114,14 @@ class IntroChatViewController: BaseChatViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 30, width: UIScreen.main.bounds.width, height: 70))
         self.view.addSubview(navBar);
+        let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30)
+        let greyView = UIView(frame: rect)
+        greyView.backgroundColor = self.hexStringToUIColor(hex: "F9F9F9")
+        self.view.addSubview(greyView)
         let navItem = UINavigationItem(title: "Chat");
-        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: nil, action: "selector");
+        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: nil, action: Selector("unwind"));
         navItem.leftBarButtonItem = doneItem;
         navBar.setItems([navItem], animated: false);
         
@@ -127,6 +131,25 @@ class IntroChatViewController: BaseChatViewController {
         self.messagesSelector.delegate = self as! MessagesSelectorDelegate
         self.chatItemsDecorator = DemoChatItemsDecorator(messagesSelector: self.messagesSelector)
         self.dataSource.addTextMessage(text: "What would you like to eat?", isIncoming: true)
+        self.dataSource.addTextMessage(text: "What would you like to eat?", isIncoming: true)
+
+    }
+    
+    // color helper function
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if (cString.hasPrefix("#")) { cString.remove(at: cString.startIndex) }
+        if ((cString.characters.count) != 6) { return UIColor.gray }
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        return UIColor( red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                        blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: CGFloat(1.0)
+        )
+    }
+    
+    @objc func unwind(){
+        print("hello")
+        self.performSegue(withIdentifier: "unwind", sender: self)
     }
     
     var chatInputPresenter: BasicChatInputBarPresenter!
