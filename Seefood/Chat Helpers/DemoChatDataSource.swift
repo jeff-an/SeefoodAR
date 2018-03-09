@@ -87,7 +87,7 @@ class DemoChatDataSource: ChatDataSourceProtocol {
     
     func putContent(payload: [String: String], callback: @escaping ([String]?) -> Void) {
         if let jsonData = try? JSONSerialization.data(withJSONObject: payload, options: []) {
-            let url = NSURL(string: "http://ffe29f01.ngrok.io/chat")!
+            let url = NSURL(string: "http://13.64.116.22:5000/chat")!
             let request = NSMutableURLRequest(url: url as URL)
             request.httpMethod = "POST"
             request.httpBody = jsonData

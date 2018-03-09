@@ -155,7 +155,7 @@ class DataStore {
         
         "cheeseburger": DishResult(imageId: "cheeseburger",
                                    title: "Cheeseburger",
-                                   restaurant: "Caltech Chandler Cafe",
+                                   restaurant: "Chandler Cafe",
                                    price: 8.99,
                                    descripLabel: "Angus beef burger with cheddar cheese.",
                                    size: MealSize.LARGE,
@@ -164,7 +164,7 @@ class DataStore {
         
         "cookie": DishResult(imageId: "cookie",
                             title: "Chocolate Chip Cookie",
-                            restaurant: "Caltech Chandler Cafe",
+                            restaurant: "Chandler Cafe",
                             price: 1.99,
                             descripLabel: "Cookie with large chocolate chunks.",
                             size: MealSize.SMALL,
@@ -200,7 +200,7 @@ class DataStore {
         
         "veggieBurger": DishResult(imageId: "veggieBurger",
                                    title: "Veggie Burger",
-                                   restaurant: "Paul Martin's",
+                                   restaurant: "Chandler Cafe",
                                    price: 16.00,
                                    descripLabel: "vegetarian three-mushroom patty, dressed arugula, pesto aioli",
                                    size: MealSize.LARGE,
@@ -209,7 +209,7 @@ class DataStore {
         
         "quinoaBowl": DishResult(imageId: "quinoaBowl",
                                    title: "Seasonal Quinoa Bowl",
-                                   restaurant: "Paul Martin's",
+                                   restaurant: "Chandler Cafe",
                                    price: 18.00,
                                    descripLabel: "Savoy spinach, blistered tomatoes, fresh vegetables, grilled avocado, served warm",
                                    size: MealSize.MEDIUM,
