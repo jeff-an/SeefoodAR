@@ -53,7 +53,7 @@ class DataStore {
     let dishesByID: [String: DishResult] = [
         "salmonBento": DishResult(imageId: "salmonBento",
                         title: "Salmon Bento Box",
-                        restaurant: "Sushi Moto",
+                        restaurant: "Yaki Maki",
                         price: 15.99,
                         descripLabel: "Succulent, fresh salmon nigiri served with rice.",
                         size: MealSize.LARGE,
@@ -63,7 +63,7 @@ class DataStore {
         
         "tunaBento": DishResult(imageId: "tunaBento",
                         title: "Tuna Bento Box",
-                        restaurant: "Sushi Moto",
+                        restaurant: "Yaki Maki",
                         price: 12.99,
                         descripLabel: "Salmon Bento Box, except with Tuna.",
                         size: MealSize.LARGE,
@@ -71,9 +71,19 @@ class DataStore {
                         cuisine: Cuisine.JAPANESE
         ),
         
+        "goldenRoll": DishResult(imageId: "goldenRoll",
+                                  title: "Golden Roll",
+                                  restaurant: "Yaki Maki",
+                                  price: 17.99,
+                                  descripLabel: "Delightful tempura and salmon roll with spicy tuna and avocado, all glazed in a sweet wasabi sauce.",
+                                  size: MealSize.LARGE,
+                                  requests: [SpecialRequest.NONE, SpecialRequest.ORGANIC, SpecialRequest.MILD],
+                                  cuisine: Cuisine.JAPANESE
+        ),
+        
         "salmonNigiri": DishResult(imageId: "salmonNigiri",
                                    title: "Salmon Nigiri",
-                                   restaurant: "Maki Yaki",
+                                   restaurant: "Yaki Maki",
                                    price: 8.00,
                                    descripLabel: "",
                                    size: nil,
@@ -83,7 +93,7 @@ class DataStore {
         
         "tunaNigiri": DishResult(imageId: "tunaNigiri",
                                  title: "Tuna Nigiri",
-                                 restaurant: "Maki Yaki",
+                                 restaurant: "Yaki Maki",
                                  price: 8.00,
                                  descripLabel: "Fresh slices of raw tuna caught off the West Coast",
                                  size: MealSize.SMALL,
@@ -92,7 +102,7 @@ class DataStore {
         
         "californiaRoll": DishResult(imageId: "californiaRoll",
                                      title: "California Roll",
-                                     restaurant: "Sushi Queen",
+                                     restaurant: "Yaki Maki",
                                      price: 6.99,
                                      descripLabel: "8pcs california roll served with miso soup.",
                                      size: MealSize.SMALL,
@@ -101,7 +111,7 @@ class DataStore {
         
         "goldenRoll": DishResult(imageId: "goldenRoll",
                                 title: "Golden Roll",
-                                restaurant: "Maki Yaki",
+                                restaurant: "Yaki Maki",
                                 price: 7.99,
                                 descripLabel: "Salmon with carrot avocado and tempura.",
                                 size: MealSize.MEDIUM,
@@ -110,7 +120,7 @@ class DataStore {
                             ),        
         "unagiNigiri": DishResult(imageId: "unagiNigiri",
                                   title: "Unagi Nigiri",
-                                  restaurant: "Sushi Moto",
+                                  restaurant: "Yaki Maki",
                                   price: 6.49,
                                   descripLabel: "Freshwater eel wrapped in seeweed.",
                                   size: MealSize.SMALL,
@@ -119,7 +129,7 @@ class DataStore {
         
         "spicyTunaRoll": DishResult(imageId: "spicyTunaRoll",
                                     title: "Spicy Tuna Roll",
-                                    restaurant: "Sushi Moto",
+                                    restaurant: "Yaki Maki",
                                     price: 7.99,
                                     descripLabel: "Fresh tuna topped with zesty orange sauce.",
                                     size: MealSize.SMALL,
@@ -128,7 +138,7 @@ class DataStore {
         
         "yellowtailNigiri": DishResult(imageId: "yellowtailNigiri",
                                        title: "Yellow Tail Nigiri",
-                                       restaurant: "Sushi Moto",
+                                       restaurant: "Yaki Maki",
                                        price: 12.99,
                                        descripLabel: "Japanese amberjack fish. Extremely high in protein!",
                                        size: MealSize.SMALL,
@@ -137,7 +147,7 @@ class DataStore {
         
         "shrimpNigiri": DishResult(imageId: "shrimpNigiri",
                                    title: "Shrimp Nigiri",
-                                   restaurant: "Sushi Moto",
+                                   restaurant: "Yaki Maki",
                                    price: 5.29,
                                    descripLabel: "Slices of parcooked shrimp atop rice. Source of omega fatty acids.",
                                    size: MealSize.SMALL,
@@ -146,7 +156,7 @@ class DataStore {
         
         "tamagoNigiri": DishResult(imageId: "tamagoNigiri",
                                    title: "Tamago Nigiri",
-                                   restaurant: "Sushi Queen",
+                                   restaurant: "Yaki Maki",
                                    price: 6.29,
                                    descripLabel: "6pcs slices of Tamago nigiri.",
                                    size: MealSize.SMALL,
@@ -163,13 +173,23 @@ class DataStore {
                                    cuisine: Cuisine.AMERICAN),
         
         "cookie": DishResult(imageId: "cookie",
-                            title: "Chocolate Chip Cookie",
-                            restaurant: "Caltech Chandler Cafe",
-                            price: 1.99,
-                            descripLabel: "Cookie with large chocolate chunks.",
-                            size: MealSize.SMALL,
-                            requests: [SpecialRequest.NONE],
-                            cuisine: Cuisine.AMERICAN),        
+                             title: "Chocolate Chip Cookie",
+                             restaurant: "Caltech Chandler Cafe",
+                             price: 1.99,
+                             descripLabel: "Cookie with large chocolate chunks.",
+                             size: MealSize.SMALL,
+                             requests: [SpecialRequest.NONE],
+                             cuisine: Cuisine.AMERICAN),
+
+        "ricottaTartine": DishResult(imageId: "ricottaTartine",
+                             title: "Ricotta Tartine",
+                             restaurant: "Caltech Chandler Cafe",
+                             price: 15.99,
+                             descripLabel: "This tartine is an open-faced sandwich that's topped with a smooth ricotta cheese and clover leaves. It's delicious any time of day.",
+                             size: MealSize.LARGE,
+                             requests: organicGlutenMild,
+                             cuisine: Cuisine.AMERICAN),
+        
         "padthai": DishResult(imageId: "padthai",
                               title: "Pad Thai",
                               restaurant: "Rice Thai Tapas",
