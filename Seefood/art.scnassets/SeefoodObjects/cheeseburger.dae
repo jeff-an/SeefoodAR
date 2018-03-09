@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2018-03-04T17:13:24Z</created>
-  <modified>2018-03-04T17:13:24Z</modified>
+  <created>2018-03-04T19:04:16Z</created>
+  <modified>2018-03-04T19:04:16Z</modified>
   <unit meter="1.000000"/>
   <up_axis>Z_UP</up_axis>
  </asset>
@@ -144,7 +144,7 @@
  <library_visual_scenes>
   <visual_scene id="scene9">
    <node id="model_Cheeseburger_20180304_014314786" name="cheeseburger">
-    <matrix>0.004 0 0 0 0 7.152557e-10 -0.004 0 0 0.004 7.152557e-10 0 0 0 0 1 </matrix>
+    <matrix>0.0035 0 0 0 0 6.258488e-10 -0.0035 0 0 0.0035 6.258488e-10 0 0 0 0 1 </matrix>
     <instance_geometry url="#geometry3">
      <bind_material>
       <technique_common>
