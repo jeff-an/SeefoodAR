@@ -130,8 +130,8 @@ class IntroChatViewController: BaseChatViewController {
         self.title = "Chat"
         self.messagesSelector.delegate = self as! MessagesSelectorDelegate
         self.chatItemsDecorator = DemoChatItemsDecorator(messagesSelector: self.messagesSelector)
-        self.dataSource.addTextMessage(text: "What would you like to eat?", isIncoming: true)
-        self.dataSource.addTextMessage(text: "What would you like to eat?", isIncoming: true)
+        self.dataSource.addTextMessage(text: "             ", isIncoming: true)
+        self.dataSource.addTextMessage(text: "What type of cuisine would you like to eat? (American, Japanese, etc.)", isIncoming: true)
 
     }
     
