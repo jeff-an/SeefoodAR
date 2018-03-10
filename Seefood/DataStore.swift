@@ -108,16 +108,7 @@ class DataStore {
                                      size: MealSize.SMALL,
                                      requests: organicVegetarianMild,
                                      cuisine: Cuisine.JAPANESE),
-        
-        "goldenRoll": DishResult(imageId: "goldenRoll",
-                                title: "Golden Roll",
-                                restaurant: "Yaki Maki",
-                                price: 7.99,
-                                descripLabel: "Salmon with carrot avocado and tempura.",
-                                size: MealSize.MEDIUM,
-                                requests: [SpecialRequest.NONE, SpecialRequest.MILD],
-                                cuisine: Cuisine.JAPANESE
-                            ),        
+
         "unagiNigiri": DishResult(imageId: "unagiNigiri",
                                   title: "Unagi Nigiri",
                                   restaurant: "Yaki Maki",
@@ -183,7 +174,7 @@ class DataStore {
 
         "ricottaTartine": DishResult(imageId: "ricottaTartine",
                              title: "Ricotta Tartine",
-                             restaurant: "Caltech Chandler Cafe",
+                             restaurant: "Chandler Cafe",
                              price: 15.99,
                              descripLabel: "This tartine is an open-faced sandwich that's topped with a smooth ricotta cheese and clover leaves. It's delicious any time of day.",
                              size: MealSize.LARGE,
