@@ -1,4 +1,9 @@
-# Complete menu app with chatbot personal assistant and food in AR
+# Seefood: A complete menu app with chatbot personal assistant and food in AR
+
+![alt text](https://i.imgur.com/nKsK5Ge.jpg "Golden Roll")
+![alt text](https://i.imgur.com/RuxDEEo.jpg "Golden Roll")
+![alt text](https://i.imgur.com/b3mWiov.jpg "Golden Roll")
+
 
 ## Inspiration
 
